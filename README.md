@@ -49,56 +49,56 @@ For at mimir skal fungere, så er du nødt til å ha all koden på din maskin, d
 
 ```json
 {
-  "ApplicationSetting": {
-    "TypeLibraryRootUri": "http://localhost:5001/",
-    "TypeLibraryVersion": "v1",
-    "TypeLibrarySecret": "cedf6a1af9917f6ac2fd8f7a0f4610b418a72c4ac9557cf2256e4ec2226b2060",
-    "TypeLibraryDomain": "runir.net"
-  },
-  "Logging": {
-    "LogLevel": {
-      "Default": "Error",
-      "Microsoft": "Warning",
-      "Microsoft.Hosting.Lifetime": "Warning",
-      "Microsoft.EntityFrameworkCore.Database.Command": "Warning",
-      "Mb.Services": "Information",
-      "EventHubModule": "Error"
-    },
-    "Console": {
-      "IncludeScopes": true,
-      "LogLevel": {
-        "Default": "Error",
-        "Microsoft": "Warning",
-        "Microsoft.Hosting.Lifetime": "Warning",
-        "Microsoft.EntityFrameworkCore.Database.Command": "Warning",
-        "Mb.Services": "Information",
-        "EventHubModule": "Error"
-      }
-    }
-  },
-  "AllowedHosts": "*",
-  "AzureActiveDirectoryConfiguration": {
-    "Instance": "https://login.microsoftonline.com/",
-    "TenantId": "3aa4a235-b6e2-48d5-9195-7fcf05b459b0",
-    "ClientId": "2967244a-662f-4462-82bd-7f9bca0a3683",
-    "ClientSecret": null,
-    "CallbackPath": "/signin-oidc",
-    "SignedOutCallbackPath": "/signout-oidc",
-    "Silent": true
-  },
-  "CorsConfiguration": {
-    "ValidOrigins": "http://localhost:3000"
-  },
-  "DatabaseConfiguration": {
-    "DataSource": "127.0.0.1",
-    "Port": 1433,
-    "InitialCatalog": "ModelBuilder",
-    "DbUser": "sa",
-    "Password": "P4ssw0rd1",
-    "Timeout": 150,
-    "ConnectRetryCount": 15,
-    "ConnectRetryInterval": 10
-  }  
+	"ApplicationSetting": {
+		"TypeLibraryRootUri": "http://localhost:5001/",
+		"TypeLibraryVersion": "v1",
+		"TypeLibrarySecret": "cedf6a1af9917f6ac2fd8f7a0f4610b418a72c4ac9557cf2256e4ec2226b2060",
+		"TypeLibraryDomain": "runir.net" 
+	},
+	 "Logging": {  
+		"LogLevel": {   
+			"Default": "Error",
+			   "Microsoft": "Warning",
+			   "Microsoft.Hosting.Lifetime": "Warning",
+			   "Microsoft.EntityFrameworkCore.Database.Command": "Warning",
+			   "Mb.Services": "Information",
+			   "EventHubModule": "Error"  
+		},
+		  "Console": {   
+			"IncludeScopes": true,
+			   "LogLevel": {    
+				"Default": "Error",
+				    "Microsoft": "Warning",
+				    "Microsoft.Hosting.Lifetime": "Warning",
+				    "Microsoft.EntityFrameworkCore.Database.Command": "Warning",
+				    "Mb.Services": "Information",
+				    "EventHubModule": "Error"   
+			}  
+		} 
+	},
+	 "AllowedHosts": "*",
+	 "AzureActiveDirectoryConfiguration": {  
+		"Instance": "https://login.microsoftonline.com/",
+		  "TenantId": "3aa4a235-b6e2-48d5-9195-7fcf05b459b0",
+		  "ClientId": "2967244a-662f-4462-82bd-7f9bca0a3683",
+		  "ClientSecret": null,
+		  "CallbackPath": "/signin-oidc",
+		  "SignedOutCallbackPath": "/signout-oidc",
+		  "Silent": true 
+	},
+	 "CorsConfiguration": {  
+		"ValidOrigins": "http://localhost:3000" 
+	},
+	 "DatabaseConfiguration": {  
+		"DataSource": "127.0.0.1",
+		  "Port": 1433,
+		  "InitialCatalog": "ModelBuilder",
+		  "DbUser": "sa",
+		  "Password": "P4ssw0rd1",
+		  "Timeout": 150,
+		  "ConnectRetryCount": 15,
+		  "ConnectRetryInterval": 10 
+	} 
 }
 ```
 

@@ -46,6 +46,7 @@ For at mimir skal fungere, så er du nødt til å ha all koden på din maskin, d
 	4. Mimir frontend
 3. Etter installasjon må du legge til den følgende env filen:
 	1. `./mimir/src/service/ModelBuilder.Api/appsettings.local.json`
+
 ```json
 {
   "ApplicationSetting": {
@@ -100,6 +101,7 @@ For at mimir skal fungere, så er du nødt til å ha all koden på din maskin, d
   }  
 }
 ```
+
 4. Der er andre .env filer i frontendkoden, men for det meste slipper du å bry deg om dette. Det mest interessante her er nok **silent** mode. Denne bør nok være *true* når du driver med utvikling lokalt, da denne modusen ignorerer en del autentisering. Løsningen vil nok mest sannsynlig kræsje uten, noe som fører til hvit skjerm på frontendsiden.
 
 ## Automatisk installasjon
@@ -114,6 +116,7 @@ Spinn opp all koden med en docker-compose fil.
 	   - 📁 typelibrary
 		   - 📁 etc
 3. Lag en ny .yaml fil og lim inn følgende kode.
+
 ```yaml
 version: "3.8"
 
@@ -235,8 +238,7 @@ volumes:
 networks:
   type_library_network:
     driver: bridge
-
-    ```
+```
    
 4. Plasser denne yaml filen som vist under:
 	- 📁 mimirorg (denne kan renames til det du vil)
@@ -276,6 +278,7 @@ Deretter er du klar til å bruke det.
 Av og til er det nyttig å kjøre tyle eller mimir separat for å slippe å ha flere Visual Studio instanser kjørende samtidig. Da kan disse filene vere nyttige å ha.
 
 ## Compose fil for hele løsningen
+
 ```yaml
 version: "3.8"
 
@@ -474,10 +477,10 @@ volumes:
 networks:
   type_library_network:
     driver: bridge
-
 ```
 
 ## Compose fil for mimir
+
 ```yaml
 version: "3.8"
 
@@ -555,7 +558,6 @@ networks:
   type_library_network:
     driver: bridge
 ```
-
 
 # Etter installasjon
 ## Lag en bruker

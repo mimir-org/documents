@@ -34,6 +34,24 @@ Videre så må du logge deg inn i Equinor systemet for å anskaffe deg en docker
 # Hvor finner jeg koden?
 Koden til mimir kan man finne her https://github.com/mimir-org under mimir repoet. Prosjektet kan klones til din maskin med `git@github.com:mimir-org/mimir.git` via ssh eller `gh repo clone mimir-org/mimir` med [github CLI](https://cli.github.com/). 
 
+## Typelibrary
+
+```bash
+git clone git@github.com:mimir-org/typelibrary.git
+```
+
+## Mimir
+
+```bash
+git clone git@github.com:mimir-org/mimir.git
+```
+
+## Component-library
+
+```bash
+git clone git@github.com:mimir-org/component-library.git
+```
+
 # Hvordan installerer jeg koden på min maskin?
 For at mimir skal fungere, så er du nødt til å ha all koden på din maskin, dette kan gjøres på flere forskjellige måter.
 

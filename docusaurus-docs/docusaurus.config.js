@@ -39,17 +39,8 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/mimir-org/documents/tree/main/docusaurus-docs/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -64,18 +55,26 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Mimir-org',
+        title: '',
         style: "dark",
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Mimir Logo',
           src: 'img/mimirLogo.png',
         },
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'mimirDocs',
             position: 'left',
             label: 'Mimir Docs',
+            to: "./Mimir"
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'tyleDocs',
+            position: 'left',
+            label: 'Tyle Docs',
+            to: "./Tyle",
           },
           {
             href: 'https://github.com/mimir-org/mimir',

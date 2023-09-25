@@ -9,16 +9,12 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    defaults:
-        run:
-          working-directory: ./docusaurus-docs/
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: npm
-          cache-dependency-path: './docusaurus-docs/package-lock.json'
       - name: Installing dependencies
         run:
           npm install --frozen-lockfile

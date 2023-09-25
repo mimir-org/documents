@@ -20,13 +20,12 @@ jobs:
           cache: yarn
 
       - name: Setting up working directory
-        working-directory: ./docusaurus-docs
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Build website
-        run: yarn build
+        working-directory: docusaurus-docs
+        run:
+          yarn install --frozen-lockfile
+          yarn build
       - name: Deploy to GitHub Pages
+        working-directory: docusaurus-docs
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -259,7 +259,7 @@ cd ./typelibrary
 
 ## :wave: Contributing
 
-We welcome community pull requests for bug fixes, enhancements, and documentation. See [how to contribute](./CONTRIBUTING.md) for more information.
+We welcome community pull requests for bug fixes, enhancements, and documentation. See [how to contribute](./contributing.md) for more information.
 
 ## :department_store: Architecture
 
@@ -271,7 +271,7 @@ This project has adopted the code of conduct defined by the Contributor Covenant
 
 ## :warning: License
 
-Distributed under the MIT License. See [license](./LICENSE) for more information.
+Distributed under the MIT License. See [license](./license.md) for more information.
 
 ## :handshake: Contact
 

@@ -17,13 +17,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
+          cache: npm
 
       - name: Setting up working directory
         working-directory: docusaurus-docs
         run:
-          yarn install --frozen-lockfile
-          yarn build
+          npm install --frozen-lockfile
+          npm build
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

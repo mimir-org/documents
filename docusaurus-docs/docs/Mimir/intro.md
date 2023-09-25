@@ -455,7 +455,7 @@ yalc update component-library
 
 ## :wave: Contributing
 
-We welcome community pull requests for bug fixes, enhancements, and documentation. See [How to contribute](./Contribute.md) for more information.
+We welcome community pull requests for bug fixes, enhancements, and documentation. See [How to contribute](./contribute.md) for more information.
 
 <!-- Architecture sketches overall -->
 
@@ -473,7 +473,7 @@ This project has adopted the code of conduct defined by the Contributor Covenant
 
 ## :warning: License
 
-Distributed under the MIT License. See [LICENSE](./LICENSE.txt) for more information.
+Distributed under the MIT License. See [LICENSE](./license.md) for more information.
 
 <!-- Contact -->
 

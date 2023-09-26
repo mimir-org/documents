@@ -3,6 +3,6 @@
   "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "Overarching concept of mimir as well as remaining work"
+    "description": "Overview over Mimirs usage of redux and some of the pitfalls to be aware of."
   }
 }

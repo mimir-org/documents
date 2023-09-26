@@ -640,7 +640,8 @@ Skriv gjerne inn stegene du må gjennom for å løse dette problemet når/hvis d
 
 ## FAQ
 
-<details><summary>I have a white screen, what do I do?</summary>
+<details>
+<summary>I have a white screen, what do I do?</summary>
 
 This is most often (read always) a result of incorrect environment variables somewhere. Checklist:
 - Is the frontend set to `REACT_APP_SILENT = true`?
@@ -655,16 +656,12 @@ If you're not receiving the email, it's because it doesn't get sent when you're 
 
 </details>
 
-If there are other issues, they most often arise from:
-- Incorrect environment variables.
-- Forgetting to run Tyle's backend.
+# I need to clean up my database, how can I do this?
 
 <details>
 <summary>
-I need to clean up my database, how can I do this?
+Nuclear option
 </summary>
-
-# Nuclear option
 
 ```sql
 ----------------------------------------------------------------------
@@ -710,7 +707,12 @@ INSERT INTO [ModelBuilder].[dbo].[CollaborationPartner] VALUES ('Aibel', 'aibel.
 --GO
 ```
 
-# TypeLibrary database
+</details>
+
+<details>
+<summary>
+TypeLibrary kill script
+</summary>
 
 ```sql
 ----------------------------------------------------------------------
@@ -728,7 +730,12 @@ CREATE Database TypeLibrary
 ----------------------------------------------------------------------
 ```
 
-# MimirorgAuthentication database
+</details>
+
+<details>
+<summary>
+MimirorgAuthentication kill script
+</summary>
 
 ```sql
 ---------------------------------------------------------------------
@@ -747,7 +754,13 @@ CREATE Database MimirorgAuthentication
 ----------------------------------------------------------------------
 ```
 
-# ModelBuilder database
+</details>
+
+
+<details>
+<summary>
+ModelBuilder kill script
+</summary>
 
 ```sql
 ---------------------------------------------------------------------
@@ -771,3 +784,7 @@ INSERT INTO [ModelBuilder].[dbo].[CollaborationPartner] VALUES ('Aibel', 'aibel.
 ```
 
 </details>
+
+If there are other issues, they most often arise from:
+- Incorrect environment variables.
+- Forgetting to run Tyle's backend.

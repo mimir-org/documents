@@ -66,7 +66,9 @@ For Mimir to function, you need to have all the code on your machine. This can b
 ### Manual Installation
 
 1. Start an MSSQL database running on port 1433 locally on your machine using Docker (or equivalent).
-2. Clone all the repositories under mimir-org (typelibrary, mimir, and component-library) and run them following the instructions in the ReadMe files of the different repositories. It might be wise to run the different projects in this order, at least the first time:
+2. Clone all the repositories under mimir-org (typelibrary, mimir, and component-library) and run them following the
+   instructions in the ReadMe files of the different repositories. It might be wise to run the different projects in
+   this order, at least the first time:
     - Tyle backend
     - Tyle frontend
     - Mimir backend
@@ -131,6 +133,7 @@ For Mimir to function, you need to have all the code on your machine. This can b
   }
 }
 ```
+
 </details>
 
 4. Der er andre .env filer i frontendkoden, men for det meste slipper du å bry deg om dette. Det mest interessante her
@@ -277,6 +280,7 @@ networks:
   type_library_network:
     driver: bridge
 ```
+
 </details>
 
 4. Plasser denne yaml filen som vist under:
@@ -289,7 +293,7 @@ networks:
         - 📁 typelibrary
             - 📁 etc
 6. Deretter kjører du docker compose filen fra kommandolinjen.
-   `docker-compose up -d` fra mappen der filen ligger.
+   `docker compose up -d` fra mappen der filen ligger.
 6. Når alt er oppe å kjører så skal du få opp de forskjellige sidene på:
    http://localhost:3000
    http://localhost:3001
@@ -323,7 +327,7 @@ Deretter er du klar til å bruke det.
 Av og til er det nyttig å kjøre tyle eller mimir separat for å slippe å ha flere Visual Studio instanser kjørende
 samtidig. Da kan disse filene vere nyttige å ha.
 
-### Compose fil for hele løsningen
+### Compose file for the whole solution
 
 <details>
 <summary>docker-compose.yaml</summary>
@@ -454,7 +458,7 @@ networks:
 
 </details>
 
-### Compose fil for tyle
+### Compose file for tyle
 
 <details>
 <summary>docker-compose.yaml</summary>
@@ -536,7 +540,7 @@ networks:
 
 </details>
 
-### Compose fil for mimir
+### Compose file for mimir
 
 <details>
 <summary>docker-compose.yaml</summary>
@@ -617,6 +621,45 @@ volumes:
 networks:
   type_library_network:
     driver: bridge
+```
+
+</details>
+
+### Compose file for the database
+
+<details>
+<summary>
+docker-compose.yaml
+</summary>
+
+```yml
+version: "3.8"
+
+services:
+  mssql:
+    image: "mcr.microsoft.com/mssql/server:2017-CU8-ubuntu"
+    hostname: 'mssql'
+    container_name: mssql
+    ports:
+      - '127.0.0.1:1433:1433'
+    volumes:
+      - mssql:/var/opt/mssql
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=P4ssw0rd1
+      - MSSQL_PID=Standard
+    networks:
+      - type_library_network
+    restart: unless-stopped
+
+volumes:
+  mssql:
+    driver: local
+
+networks:
+  type_library_network:
+    driver: bridge
+
 ```
 
 </details>
@@ -644,8 +687,10 @@ Skriv gjerne inn stegene du må gjennom for å løse dette problemet når/hvis d
 <summary>I have a white screen, what do I do?</summary>
 
 This is most often (read always) a result of incorrect environment variables somewhere. Checklist:
+
 - Is the frontend set to `REACT_APP_SILENT = true`?
-- Does your user have a company in the database, and is the secret for this company set in Mimir's `appsettings.json`, e.g., `"TypelibrarySecret": "secretHash"`?
+- Does your user have a company in the database, and is the secret for this company set in Mimir's `appsettings.json`,
+  e.g., `"TypelibrarySecret": "secretHash"`?
 
 </details>
 
@@ -657,57 +702,6 @@ If you're not receiving the email, it's because it doesn't get sent when you're 
 </details>
 
 # I need to clean up my database, how can I do this?
-
-<details>
-<summary>
-Nuclear option
-</summary>
-
-```sql
-----------------------------------------------------------------------
---Script som kobler fra alt og alle som er tilkoblet
---Deretter slettes databasen
-USE [master];
-DECLARE @kill varchar(8000) = '';
-SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
-FROM sys.dm_exec_sessions
-WHERE database_id = db_id('TypeLibrary')
-EXEC(@kill);
-DROP DATABASE TypeLibrary
-CREATE Database TypeLibrary
----------------------------------------------------------------------
-----------------------------------------------------------------------
---Script som kobler fra alt og alle som er tilkoblet
---Deretter slettes databasen
-USE [master];
-DECLARE @kill varchar(8000) = '';
-SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
-FROM sys.dm_exec_sessions
-WHERE database_id = db_id('MimirorgAuthentication')
-EXEC(@kill);
-DROP DATABASE MimirorgAuthentication
-CREATE Database MimirorgAuthentication
----------------------------------------------------------------------
-----------------------------------------------------------------------
---Script som kobler fra alt og alle som er tilkoblet
---Deretter slettes databasen
-USE [master];
-DECLARE @kill varchar(8000) = '';
-SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
-FROM sys.dm_exec_sessions
-WHERE database_id = db_id('ModelBuilder')
-EXEC(@kill);
-DROP DATABASE ModelBuilder
-CREATE Database ModelBuilder
-INSERT INTO [ModelBuilder].[dbo].[CollaborationPartner] VALUES ('Aibel', 'aibel.com', 0, 'rdf.aibel.com');
----------------------------------------------------------------------
---USE master
---GO
---xp_readerrorlog 0, 1, N'Server is listening on' 
---GO
-```
-
-</details>
 
 <details>
 <summary>
@@ -785,6 +779,57 @@ INSERT INTO [ModelBuilder].[dbo].[CollaborationPartner] VALUES ('Aibel', 'aibel.
 
 </details>
 
+<details>
+<summary>
+Nuclear option (kill all)
+</summary>
+
+```sql
+----------------------------------------------------------------------
+--Script som kobler fra alt og alle som er tilkoblet
+--Deretter slettes databasen
+USE [master];
+DECLARE @kill varchar(8000) = '';
+SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
+FROM sys.dm_exec_sessions
+WHERE database_id = db_id('TypeLibrary')
+EXEC(@kill);
+DROP DATABASE TypeLibrary
+CREATE Database TypeLibrary
+---------------------------------------------------------------------
+----------------------------------------------------------------------
+--Script som kobler fra alt og alle som er tilkoblet
+--Deretter slettes databasen
+USE [master];
+DECLARE @kill varchar(8000) = '';
+SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
+FROM sys.dm_exec_sessions
+WHERE database_id = db_id('MimirorgAuthentication')
+EXEC(@kill);
+DROP DATABASE MimirorgAuthentication
+CREATE Database MimirorgAuthentication
+---------------------------------------------------------------------
+----------------------------------------------------------------------
+--Script som kobler fra alt og alle som er tilkoblet
+--Deretter slettes databasen
+USE [master];
+DECLARE @kill varchar(8000) = '';
+SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
+FROM sys.dm_exec_sessions
+WHERE database_id = db_id('ModelBuilder')
+EXEC(@kill);
+DROP DATABASE ModelBuilder
+CREATE Database ModelBuilder
+---------------------------------------------------------------------
+--USE master
+--GO
+--xp_readerrorlog 0, 1, N'Server is listening on' 
+--GO
+```
+
+</details>
+
 If there are other issues, they most often arise from:
+
 - Incorrect environment variables.
 - Forgetting to run Tyle's backend.

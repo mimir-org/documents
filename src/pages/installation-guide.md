@@ -1,69 +1,81 @@
-- [Manuell installasjon](#manuell-installasjon)
-- [Automatisk installasjon](#automatisk-installasjon)
-- [Compose fil for tyle](#compose-fil-for-tyle)
-- [Compose fil for mimir](#compose-fil-for-mimir)
-- [Lag en bruker](#lag-en-bruker)
-- [Jeg har hvit skjerm, hva gjør jeg?](#jeg-har-hvit-skjerm-hva-gj%C3%B8r-jeg)
-- [Jeg får ikke registrert meg, hva skjer?](#jeg-f%C3%A5r-ikke-registrert-meg-hva-skjer)
+---
+title: Installation guide
+---
 
-Tyle og mimir har et veldig stort og innviklet domene, det er ikke alltid så lett å forstå seg på så det er ingen skam å spørre etter hjelp. Dette er en minimalistisk nesten "installasjonsguide" til koden, den vil ikke gå så veldig i dybden da dette er noe man må ta ansikt til ansikt, men er ment som en slags, "Slig kjører du koden forhåpentligvis".
+## Installation guide
 
-# Vokabular
-- CLI - Command Line Interface
-- repo - Github Repository (der koden ligger)
-- env - Environment variable
+Tyle and Mimir have a very large and complex domain, which is not always easy to understand. Therefore, there's no shame
+in asking for help. This is a minimalist, almost "installation guide" for the code. It won't go into great depth, as
+that's something best discussed face-to-face, but it's intended as a sort of "Here's how you hopefully run the code."
 
-# Verktøy
-Teamet bruker de verktøyene de er mest komfortable med men her er eksempel på verktøy:
-Frontend kode:
+## Tools
+
+The team uses the tools they are most comfortable with, but here are some examples:
+Frontend code:
+
 - VSCode
 - WebStorm
-Backend kode:
+
+Backend code:
+
 - Visual Studio + Resharper
-- Rider (Resharper er innebygd)
-Andre verktøy:
+- Rider (Resharper is built-in)
+
+Other tools:
+
 - Git
 - Docker
-- Datagrip (databasehåndtering)
-- SQL Server Management studio
+- Datagrip (database management)
+- SQL Server Management Studio
 
-Av disse så **Må** du installere docker eller tilsvarende for å kunne kjøre mssql databasen.
+Of these, you **must** install Docker or equivalent to run the MSSQL database.
 
-Videre så må du logge deg inn i Equinor systemet for å anskaffe deg en docker lisens, dette kan du gjøre på https://connectit.equinor.com/, så går du inn i en nettleser gjennom connectit og går til https://accessit.equinor.com. Du må også be om access til outlook og din egen epost for å få til dette + utviklerkurset som du må ta en gang i året.
+Furthermore, you need to log into the Equinor system to acquire a Docker license. This can be done
+at https://connectit.equinor.com/. Then, go to https://accessit.equinor.com through a browser via ConnectIT. You must
+also request access to Outlook and your own email to achieve this, plus the developer course that you must take once a
+year.
 
-# Hvor finner jeg koden?
-Koden til mimir kan man finne her https://github.com/mimir-org under mimir repoet. Prosjektet kan klones til din maskin med `git@github.com:mimir-org/mimir.git` via ssh eller `gh repo clone mimir-org/mimir` med [github CLI](https://cli.github.com/). 
+## Where Can I Find the Code?
 
-## Typelibrary
+The code for Mimir can be found here https://github.com/mimir-org under the Mimir repository. The project can be cloned
+to your machine with `git@github.com:mimir-org/mimir.git` via SSH or `gh repo clone mimir-org/mimir`
+with [GitHub CLI](https://cli.github.com/).
+
+### Tyle
 
 ```bash
 git clone git@github.com:mimir-org/typelibrary.git
 ```
 
-## Mimir
+### Mimir
 
 ```bash
 git clone git@github.com:mimir-org/mimir.git
 ```
 
-## Component-library
+### Component-library
 
 ```bash
 git clone git@github.com:mimir-org/component-library.git
 ```
 
-# Hvordan installerer jeg koden på min maskin?
-For at mimir skal fungere, så er du nødt til å ha all koden på din maskin, dette kan gjøres på flere forskjellige måter.
+## How Do I Install the Code on My Machine?
 
-## Manuell installasjon
-1. Start en mssql database som kjører på port 1433 lokalt på din maskin ved hjelp av Docker (eller tilsvarende).
-2. Klon alle repoene under mimir-org (typelibrary, mimir og component-library) og kjør de ved hjelp av instruksene i ReadMe filene i de forskjellige repoene. Her kan det vere lurt å kjøre de forskjellige prosjektene i denne rekkefølgen, i alle fall første gang.
-	1. Tyle backend
-	2. Tyle frontend
-	3. Mimir backend
-	4. Mimir frontend
-3. Etter installasjon må du legge til den følgende env filen:
-	1. `./mimir/src/service/ModelBuilder.Api/appsettings.local.json`
+For Mimir to function, you need to have all the code on your machine. This can be done in several different ways.
+
+### Manual Installation
+
+1. Start an MSSQL database running on port 1433 locally on your machine using Docker (or equivalent).
+2. Clone all the repositories under mimir-org (typelibrary, mimir, and component-library) and run them following the instructions in the ReadMe files of the different repositories. It might be wise to run the different projects in this order, at least the first time:
+    - Tyle backend
+    - Tyle frontend
+    - Mimir backend
+    - Mimir frontend
+3. After installation, you must add the following env file:
+    - `/mimir/src/service/ModelBuilder.Api/appsettings.local.json`
+
+<details>
+<summary>appsettings.local.json</summary>
 
 ```json
 {
@@ -119,28 +131,36 @@ For at mimir skal fungere, så er du nødt til å ha all koden på din maskin, d
   }
 }
 ```
+</details>
 
-4. Der er andre .env filer i frontendkoden, men for det meste slipper du å bry deg om dette. Det mest interessante her er nok **silent** mode. Denne bør nok være *true* når du driver med utvikling lokalt, da denne modusen ignorerer en del autentisering. Løsningen vil nok mest sannsynlig kræsje uten, noe som fører til hvit skjerm på frontendsiden.
+4. Der er andre .env filer i frontendkoden, men for det meste slipper du å bry deg om dette. Det mest interessante her
+   er nok **silent** mode. Denne bør nok være *true* når du driver med utvikling lokalt, da denne modusen ignorerer en
+   del autentisering. Løsningen vil nok mest sannsynlig kræsje uten, noe som fører til hvit skjerm på frontendsiden.
 
-## Automatisk installasjon
+### Automatisk installasjon
+
 Spinn opp all koden med en docker-compose fil.
+
 1. Installer [docker](https://www.docker.com/)
 2. Finn et sted å laste ned koden til slik at du får denne mappestrukturen:
-   - 📁 mimirorg (denne kan renames til det du vil)
-	   - 📁 component-library
-		   - 📁 etc
-	   - 📁 mimir
-		   - 📁 etc
-	   - 📁 typelibrary
-		   - 📁 etc
+    - 📁 mimirorg (denne kan renames til det du vil)
+        - 📁 component-library
+            - 📁 etc
+        - 📁 mimir
+            - 📁 etc
+        - 📁 typelibrary
+            - 📁 etc
 3. Lag en ny .yaml fil og lim inn følgende kode.
+
+<details>
+<summary>docker-compose.yaml</summary>
 
 ```yaml
 version: "3.8"
 
 services:
-  
-   tyle-client:
+
+  tyle-client:
     build: ./typelibrary/src/client
     hostname: 'tyleclient'
     container_name: tyleclient
@@ -150,27 +170,27 @@ services:
       - TYPELIBRARY_ENV_API_BASE_URL=http://localhost:5001/v1.0/
     networks:
       - type_library_network
-      
-   mimir-client:
+
+  mimir-client:
     build:
-     context: ./mimir/src/client
-     args:
-      - MIMIR_VERSION=4.0.0
+      context: ./mimir/src/client
+      args:
+        - MIMIR_VERSION=4.0.0
     hostname: 'mimirclient'
     container_name: mimirclient
     ports:
-     - "3000:80"
+      - "3000:80"
     environment:
-     - MIMIR_ENV_API_BASE_URL=http://localhost:5000/v1.0/
-     - MIMIR_ENV_SOCKET_BASE_URL=http://localhost:5000/     
-     - MIMIR_ENV_SILENT=true
-     - MIMIR_ENV_APP_ID=2967244a-662f-4462-82bd-7f9bca0a3683
-     - MIMIR_ENV_CLIENT_ID=0c174c7e-e018-41a2-ba84-3d4b4544a16f
-     - MIMIR_ENV_TENANT_ID=3aa4a235-b6e2-48d5-9195-7fcf05b459b0
+      - MIMIR_ENV_API_BASE_URL=http://localhost:5000/v1.0/
+      - MIMIR_ENV_SOCKET_BASE_URL=http://localhost:5000/
+      - MIMIR_ENV_SILENT=true
+      - MIMIR_ENV_APP_ID=2967244a-662f-4462-82bd-7f9bca0a3683
+      - MIMIR_ENV_CLIENT_ID=0c174c7e-e018-41a2-ba84-3d4b4544a16f
+      - MIMIR_ENV_TENANT_ID=3aa4a235-b6e2-48d5-9195-7fcf05b459b0
     networks:
-     - type_library_network
+      - type_library_network
 
-   tyle-server:
+  tyle-server:
     build: ./typelibrary/src/server
     hostname: 'tyleserver'
     container_name: tyleserver
@@ -201,8 +221,8 @@ services:
       - type_library_network
     depends_on:
       - mssql
-      
-   mimir-server:
+
+  mimir-server:
     build: ./mimir/src/service
     hostname: 'mimirserver'
     container_name: mimirserver
@@ -231,7 +251,7 @@ services:
     depends_on:
       - mssql
 
-   mssql:
+  mssql:
     image: "mcr.microsoft.com/mssql/server:2017-CU8-ubuntu"
     hostname: 'mssql'
     container_name: mssql
@@ -257,16 +277,17 @@ networks:
   type_library_network:
     driver: bridge
 ```
-   
+</details>
+
 4. Plasser denne yaml filen som vist under:
-	- 📁 mimirorg (denne kan renames til det du vil)
-		- 🐋 docker-compose.yaml
-		- 📁 component-library
-			- 📁 etc
-		- 📁 mimir
-			- 📁 etc
-		- 📁 typelibrary
-			- 📁 etc
+    - 📁 mimirorg (denne kan renames til det du vil)
+        - 🐋 docker-compose.yaml
+        - 📁 component-library
+            - 📁 etc
+        - 📁 mimir
+            - 📁 etc
+        - 📁 typelibrary
+            - 📁 etc
 6. Deretter kjører du docker compose filen fra kommandolinjen.
    `docker-compose up -d` fra mappen der filen ligger.
 6. Når alt er oppe å kjører så skal du få opp de forskjellige sidene på:
@@ -274,35 +295,45 @@ networks:
    http://localhost:3001
    http://localhost:5000
    http://localhost:5001
-7. For å kjøre desse lokalt så er du nødt til å stoppe containeren som du har lyst til å kjøre lokalt i eksempelvis Visual Studio.
+7. For å kjøre desse lokalt så er du nødt til å stoppe containeren som du har lyst til å kjøre lokalt i eksempelvis
+   Visual Studio.
 
 ## Mimir frontend og Yalc
+
 https://github.com/wclr/yalc
 
-Yalc er en måte å koble npm pakkeutvikling sammen med dev miljø. Det gjør det mulig for oss å utvikle komponenter i component-library og dynamisk oppdatere disse lokalt slik at man slipper å lansere en ny pakke på npm for hver endring av kode.
+Yalc er en måte å koble npm pakkeutvikling sammen med dev miljø. Det gjør det mulig for oss å utvikle komponenter i
+component-library og dynamisk oppdatere disse lokalt slik at man slipper å lansere en ny pakke på npm for hver endring
+av kode.
 
 installer yalc med
 `npm i yalc -g`
 
 Deretter er du klar til å bruke det.
--  Naviger til `component-library/app mappen`
--  Kjør kommandoen `yalc publish`
+
+- Naviger til `component-library/app mappen`
+- Kjør kommandoen `yalc publish`
 - Naviger til `/mimirorg/mimir/src/client`
 - Kjør kommandoen `yalc add @mimirorg/component-library`
-- Nå kan du kjøre mimir som normalt ved å først installere pakkene `npm i` for så å kjøre det lokalt med `npm run start` eller `npm run`. 
+- Nå kan du kjøre mimir som normalt ved å først installere pakkene `npm i` for så å kjøre det lokalt med `npm run start`
+  eller `npm run`.
 
+## Docker compose filer
 
-# Docker compose filer
-Av og til er det nyttig å kjøre tyle eller mimir separat for å slippe å ha flere Visual Studio instanser kjørende samtidig. Da kan disse filene vere nyttige å ha.
+Av og til er det nyttig å kjøre tyle eller mimir separat for å slippe å ha flere Visual Studio instanser kjørende
+samtidig. Da kan disse filene vere nyttige å ha.
 
-## Compose fil for hele løsningen
+### Compose fil for hele løsningen
+
+<details>
+<summary>docker-compose.yaml</summary>
 
 ```yaml
 version: "3.8"
 
 services:
-  
-   tyle-client:
+
+  tyle-client:
     build: ./typelibrary/src/client
     hostname: 'tyleclient'
     container_name: tyleclient
@@ -312,27 +343,27 @@ services:
       - TYPELIBRARY_ENV_API_BASE_URL=http://localhost:5001/v1.0/
     networks:
       - type_library_network
-      
-   mimir-client:
+
+  mimir-client:
     build:
-     context: ./mimir/src/client
-     args:
-      - MIMIR_VERSION=4.0.0
+      context: ./mimir/src/client
+      args:
+        - MIMIR_VERSION=4.0.0
     hostname: 'mimirclient'
     container_name: mimirclient
     ports:
-     - "3000:80"
+      - "3000:80"
     environment:
-     - MIMIR_ENV_API_BASE_URL=http://localhost:5000/v1.0/
-     - MIMIR_ENV_SOCKET_BASE_URL=http://localhost:5000/     
-     - MIMIR_ENV_SILENT=true
-     - MIMIR_ENV_APP_ID=2967244a-662f-4462-82bd-7f9bca0a3683
-     - MIMIR_ENV_CLIENT_ID=0c174c7e-e018-41a2-ba84-3d4b4544a16f
-     - MIMIR_ENV_TENANT_ID=3aa4a235-b6e2-48d5-9195-7fcf05b459b0
+      - MIMIR_ENV_API_BASE_URL=http://localhost:5000/v1.0/
+      - MIMIR_ENV_SOCKET_BASE_URL=http://localhost:5000/
+      - MIMIR_ENV_SILENT=true
+      - MIMIR_ENV_APP_ID=2967244a-662f-4462-82bd-7f9bca0a3683
+      - MIMIR_ENV_CLIENT_ID=0c174c7e-e018-41a2-ba84-3d4b4544a16f
+      - MIMIR_ENV_TENANT_ID=3aa4a235-b6e2-48d5-9195-7fcf05b459b0
     networks:
-     - type_library_network
+      - type_library_network
 
-   tyle-server:
+  tyle-server:
     build: ./typelibrary/src/server
     hostname: 'tyleserver'
     container_name: tyleserver
@@ -363,8 +394,8 @@ services:
       - type_library_network
     depends_on:
       - mssql
-      
-   mimir-server:
+
+  mimir-server:
     build: ./mimir/src/service
     hostname: 'mimirserver'
     container_name: mimirserver
@@ -393,7 +424,7 @@ services:
     depends_on:
       - mssql
 
-   mssql:
+  mssql:
     image: "mcr.microsoft.com/mssql/server:2017-CU8-ubuntu"
     hostname: 'mssql'
     container_name: mssql
@@ -421,13 +452,19 @@ networks:
 
 ```
 
-## Compose fil for tyle
+</details>
+
+### Compose fil for tyle
+
+<details>
+<summary>docker-compose.yaml</summary>
+
 ```yaml
 version: "3.8"
 
 services:
-  
-   tyle-client:
+
+  tyle-client:
     build: ./typelibrary/src/client
     hostname: 'tyleclient'
     container_name: tyleclient
@@ -437,8 +474,8 @@ services:
       - TYPELIBRARY_ENV_API_BASE_URL=http://localhost:5001/v1.0/
     networks:
       - type_library_network
-      
-   tyle-server:
+
+  tyle-server:
     build: ./typelibrary/src/server
     hostname: 'tyleserver'
     container_name: tyleserver
@@ -469,8 +506,8 @@ services:
       - type_library_network
     depends_on:
       - mssql
-      
-   mssql:
+
+  mssql:
     image: "mcr.microsoft.com/mssql/server:2017-CU8-ubuntu"
     hostname: 'mssql'
     container_name: mssql
@@ -497,33 +534,38 @@ networks:
     driver: bridge
 ```
 
-## Compose fil for mimir
+</details>
+
+### Compose fil for mimir
+
+<details>
+<summary>docker-compose.yaml</summary>
 
 ```yaml
 version: "3.8"
 
 services:
-  
-   mimir-client:
+
+  mimir-client:
     build:
-     context: ./mimir/src/client
-     args:
-      - MIMIR_VERSION=4.0.0
+      context: ./mimir/src/client
+      args:
+        - MIMIR_VERSION=4.0.0
     hostname: 'mimirclient'
     container_name: mimirclient
     ports:
-     - "3000:80"
+      - "3000:80"
     environment:
-     - MIMIR_ENV_API_BASE_URL=http://localhost:5000/v1.0/
-     - MIMIR_ENV_SOCKET_BASE_URL=http://localhost:5000/     
-     - MIMIR_ENV_SILENT=true
-     - MIMIR_ENV_APP_ID=2967244a-662f-4462-82bd-7f9bca0a3683
-     - MIMIR_ENV_CLIENT_ID=0c174c7e-e018-41a2-ba84-3d4b4544a16f
-     - MIMIR_ENV_TENANT_ID=3aa4a235-b6e2-48d5-9195-7fcf05b459b0
+      - MIMIR_ENV_API_BASE_URL=http://localhost:5000/v1.0/
+      - MIMIR_ENV_SOCKET_BASE_URL=http://localhost:5000/
+      - MIMIR_ENV_SILENT=true
+      - MIMIR_ENV_APP_ID=2967244a-662f-4462-82bd-7f9bca0a3683
+      - MIMIR_ENV_CLIENT_ID=0c174c7e-e018-41a2-ba84-3d4b4544a16f
+      - MIMIR_ENV_TENANT_ID=3aa4a235-b6e2-48d5-9195-7fcf05b459b0
     networks:
-     - type_library_network
-      
-   mimir-server:
+      - type_library_network
+
+  mimir-server:
     build: ./mimir/src/service
     hostname: 'mimirserver'
     container_name: mimirserver
@@ -551,8 +593,8 @@ services:
       - type_library_network
     depends_on:
       - mssql
-      
-   mssql:
+
+  mssql:
     image: "mcr.microsoft.com/mssql/server:2017-CU8-ubuntu"
     hostname: 'mssql'
     container_name: mssql
@@ -577,25 +619,155 @@ networks:
     driver: bridge
 ```
 
-# Etter installasjon
-## Lag en bruker
-Det første du må gjøre etter installasjon er å starte tyle backend, databasen og frontend. Deretter registrerer du en ny bruker gjennom frontenden. Etter registrering får du beskjed om å vente på en epost, denne kommer aldri, for den ligger her: `/mimirorg/typelibrary/src/server/TypeLibrary.Api/bin/Debug/net7.0/Data/Mail`. Her kan det vere lurt å sortere etter sist endret slik at den siste eposten du mottok kommer på toppen.
+</details>
 
-Deretter logger du inn. Siden der har skjedd noen endringer i tyle backenden i det siste så er der noen steg du må gå gjennom før du får en fullverdig bruker, disse er avhengig av hvor vi er i prosessen, så her er det foreløpig dårlig med dokumentasjon, forhåpentligvis så funker det uten noen problem. Problemet du kanskje støter på er at det ikke eksisterer noe selskap i backend koden din fra før, så her må man koble seg på databasen til løsningen og legge til denne informasjonen, da det ikke blir gjort automatisk lenger.
+## Etter installasjon
+
+### Lag en bruker
+
+Det første du må gjøre etter installasjon er å starte tyle backend, databasen og frontend. Deretter registrerer du en ny
+bruker gjennom frontenden. Etter registrering får du beskjed om å vente på en epost, denne kommer aldri, for den ligger
+her: `/mimirorg/typelibrary/src/server/TypeLibrary.Api/bin/Debug/net7.0/Data/Mail`. Her kan det vere lurt å sortere
+etter sist endret slik at den siste eposten du mottok kommer på toppen.
+
+Deretter logger du inn. Siden der har skjedd noen endringer i tyle backenden i det siste så er der noen steg du må gå
+gjennom før du får en fullverdig bruker, disse er avhengig av hvor vi er i prosessen, så her er det foreløpig dårlig med
+dokumentasjon, forhåpentligvis så funker det uten noen problem. Problemet du kanskje støter på er at det ikke eksisterer
+noe selskap i backend koden din fra før, så her må man koble seg på databasen til løsningen og legge til denne
+informasjonen, da det ikke blir gjort automatisk lenger.
 
 Skriv gjerne inn stegene du må gjennom for å løse dette problemet når/hvis det skjer.
-# FAQ
 
-## Jeg har hvit skjerm, hva gjør jeg?
-Dette er som oftest (les alltid), et resultat av feil env variabler ett eller annet sted. Sjekkliste:
-- Er frontend satt til `REACT_APP_SILENT = true`
-- Har brukeren din et company i databasen, er secret'en til dette company'et satt til secret i mimir sin `appsettings.json` eks: `"TypelibrarySecret": "secretHash"`.
+## FAQ
 
-## Jeg får ikke registrert meg, hva skjer?
-Om du ikke får eposten så er det fordi den ikke kommer når du kjører i dev, det samme gjelder account recovery koden.
-Eposten som du skulle ha fått ligger i:
-- `/mimirorg/typelibrary/src/server/TypeLibrary.Api/bin/Debug/net7.0/Data/Mail/`
+<details><summary>I have a white screen, what do I do?</summary>
 
-Om det er andre problemer så kommer det som oftest av:
-- env variabler som ikke stemmer.
-- Man glemmer å kjøre backenden til tyle.
+This is most often (read always) a result of incorrect environment variables somewhere. Checklist:
+- Is the frontend set to `REACT_APP_SILENT = true`?
+- Does your user have a company in the database, and is the secret for this company set in Mimir's `appsettings.json`, e.g., `"TypelibrarySecret": "secretHash"`?
+
+</details>
+
+<details><summary>I can't register, what's happening?</summary>
+If you're not receiving the email, it's because it doesn't get sent when you're running in development mode; the same applies to the account recovery code. The email you should have received can be found in:
+
+`/mimirorg/typelibrary/src/server/TypeLibrary.Api/bin/Debug/net7.0/Data/Mail/`
+
+</details>
+
+If there are other issues, they most often arise from:
+- Incorrect environment variables.
+- Forgetting to run Tyle's backend.
+
+<details>
+<summary>
+I need to clean up my database, how can I do this?
+</summary>
+
+# Nuclear option
+
+```sql
+----------------------------------------------------------------------
+--Script som kobler fra alt og alle som er tilkoblet
+--Deretter slettes databasen
+USE [master];
+DECLARE @kill varchar(8000) = '';
+SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
+FROM sys.dm_exec_sessions
+WHERE database_id = db_id('TypeLibrary')
+EXEC(@kill);
+DROP DATABASE TypeLibrary
+CREATE Database TypeLibrary
+---------------------------------------------------------------------
+----------------------------------------------------------------------
+--Script som kobler fra alt og alle som er tilkoblet
+--Deretter slettes databasen
+USE [master];
+DECLARE @kill varchar(8000) = '';
+SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
+FROM sys.dm_exec_sessions
+WHERE database_id = db_id('MimirorgAuthentication')
+EXEC(@kill);
+DROP DATABASE MimirorgAuthentication
+CREATE Database MimirorgAuthentication
+---------------------------------------------------------------------
+----------------------------------------------------------------------
+--Script som kobler fra alt og alle som er tilkoblet
+--Deretter slettes databasen
+USE [master];
+DECLARE @kill varchar(8000) = '';
+SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
+FROM sys.dm_exec_sessions
+WHERE database_id = db_id('ModelBuilder')
+EXEC(@kill);
+DROP DATABASE ModelBuilder
+CREATE Database ModelBuilder
+INSERT INTO [ModelBuilder].[dbo].[CollaborationPartner] VALUES ('Aibel', 'aibel.com', 0, 'rdf.aibel.com');
+---------------------------------------------------------------------
+--USE master
+--GO
+--xp_readerrorlog 0, 1, N'Server is listening on' 
+--GO
+```
+
+# TypeLibrary database
+
+```sql
+----------------------------------------------------------------------
+--Script som kobler fra alt og alle som er tilkoblet
+--Deretter slettes databasen
+USE [master];
+DECLARE @kill varchar(8000) = '';
+SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
+FROM sys.dm_exec_sessions
+WHERE database_id = db_id('TypeLibrary')
+EXEC(@kill);
+DROP DATABASE TypeLibrary
+CREATE Database TypeLibrary
+---------------------------------------------------------------------
+----------------------------------------------------------------------
+```
+
+# MimirorgAuthentication database
+
+```sql
+---------------------------------------------------------------------
+----------------------------------------------------------------------
+--Script som kobler fra alt og alle som er tilkoblet
+--Deretter slettes databasen
+USE [master];
+DECLARE @kill varchar(8000) = '';
+SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
+FROM sys.dm_exec_sessions
+WHERE database_id = db_id('MimirorgAuthentication')
+EXEC(@kill);
+DROP DATABASE MimirorgAuthentication
+CREATE Database MimirorgAuthentication
+---------------------------------------------------------------------
+----------------------------------------------------------------------
+```
+
+# ModelBuilder database
+
+```sql
+---------------------------------------------------------------------
+----------------------------------------------------------------------
+--Script som kobler fra alt og alle som er tilkoblet
+--Deretter slettes databasen
+USE [master];
+DECLARE @kill varchar(8000) = '';
+SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
+FROM sys.dm_exec_sessions
+WHERE database_id = db_id('ModelBuilder')
+EXEC(@kill);
+DROP DATABASE ModelBuilder
+CREATE Database ModelBuilder
+INSERT INTO [ModelBuilder].[dbo].[CollaborationPartner] VALUES ('Aibel', 'aibel.com', 0, 'rdf.aibel.com');
+---------------------------------------------------------------------
+--USE master
+--GO
+--xp_readerrorlog 0, 1, N'Server is listening on' 
+--GO
+```
+
+</details>

@@ -64,6 +64,11 @@ const config = {
                 },
                 items: [
                     {
+                        position: 'left',
+                        label: 'Installation Guide',
+                        to: "/installation-guide",
+                    },
+                    {
                         type: 'docSidebar',
                         sidebarId: 'mimirDocs',
                         position: 'left',
@@ -106,8 +111,20 @@ const config = {
                         items: [
                             {
                                 label: 'Mimir Docs',
-                                to: '/docs/intro',
+                                to: '/docs/Mimir/intro',
                             },
+                            {
+                                label: 'Tyle Docs',
+                                to: '/docs/Tyle/intro',
+                            },
+                            {
+                                label: 'Mimir User Documentation',
+                                to: '/docs/MimirUserDocs/intro',
+                            },
+                            {
+                                label: 'Tyle User Documentation',
+                                to: '/docs/TyleUserDocs/intro',
+                            }
                         ],
                     },
                 ],

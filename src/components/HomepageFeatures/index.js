@@ -8,7 +8,8 @@ const FeatureList = [
         img: require('@site/static/img/mimirDarkLogo.png').default,
         description: (
             <>
-                Mimir description here...
+                Mimir can use the types from tyle to draw and explore IMF-models. This currently does not have a
+                production environment.
             </>
         ),
     },
@@ -17,16 +18,17 @@ const FeatureList = [
         img: "./img/tyleLogo.svg",
         description: (
             <>
-                Tyle description here...
+                Tyle is the type creating system of Mimir-org. Create types to use with Mimir
+                <a href={"www.imftools.com"}> here</a>.
             </>
         ),
     },
     {
         title: 'Component Library',
-        img: require('@site/static/img/mimirDarkLogo.png').default,
+        img: require('@site/static/img/community.png').default,
         description: (
             <>
-                Component Lbrary Description...
+                This is the component library of both Mimir and Tyle, you can view the current components <a href={"https://mimir-org.github.io/component-library/"}> here</a>.
             </>
         ),
     },

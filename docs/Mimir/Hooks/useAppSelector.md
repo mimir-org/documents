@@ -5,8 +5,8 @@ The `useAppSelector` hook is a custom hook that is often used in Redux Toolkit-b
 Here's a typical definition of `useAppSelector`:
 
 ```typescript
-import { TypedUseSelectorHook, useSelector } from 'react-redux';
-import { RootState } from '../store';  // Import your RootState type
+import { TypedUseSelectorHook, useSelector } from "react-redux";
+import { RootState } from "../store"; // Import your RootState type
 
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 ```

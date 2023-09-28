@@ -7,18 +7,18 @@ sidebar_position: 2
 ## Initial Steps
 
 1. Navigate to [Tyle's Official Website](https://tyle.imftools.com) and select the 'Sign Up' option.
-   
+
 ![Sign Up](img/registering1.png)
 
 2. On the 'Registration' interface, complete the required fields and click 'Create Account'.
-   
+
 ![Registration Interface](img/registering2.png)
 
 ## Email Verification
 
 3. An email containing a registration code will be dispatched to your inbox. If you do not receive the email, please
    check your spam folder.
-   
+
 ![Email Verification](img/registering3.png)
 
 ## Authenticator Setup
@@ -26,7 +26,7 @@ sidebar_position: 2
 4. Utilize an authenticator application to scan the provided QR code. We recommend 'Microsoft Authenticator', available
    on your mobile device's app store. To scan the QR code, select the '+' icon, choose the account type, and then
    select 'Scan QR Code'.
-   
+
 ![Authenticator Setup](img/registering4.png)
 
 5. After successfully adding Tyle to your authenticator, proceed by clicking 'Next'.
@@ -37,7 +37,7 @@ sidebar_position: 2
 
 6. The administrator of your selected organization will receive a notification of your registration. They will assign
    your initial access level, and you will be notified via email.
-   
+
 ![Access Level](img/registering6.png)
 
 ## Account Recovery

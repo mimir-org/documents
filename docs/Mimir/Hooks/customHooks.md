@@ -10,6 +10,7 @@ Below is the documentation for the custom hooks available in the `src/client/src
 
 - **Purpose**: To get a company based on its domain.
 - **Usage**:
+
   ```typescript
   import { useCompanySelector } from 'hooks/useCompanySelector';
 
@@ -23,6 +24,7 @@ Below is the documentation for the custom hooks available in the `src/client/src
 
 - **Purpose**: To debounce the update of a state variable.
 - **Usage**:
+
   ```typescript
   import { useDebounce } from 'hooks/useDebounce';
 
@@ -43,6 +45,7 @@ Below is the documentation for the custom hooks available in the `src/client/src
 
 - **Purpose**: Combines `useState` and `useDebounce`.
 - **Usage**:
+
   ```typescript
   import { useDebounceState } from 'hooks/useDebounceState';
 
@@ -62,6 +65,7 @@ Below is the documentation for the custom hooks available in the `src/client/src
 
 - **Purpose**: To run an effect only once. This can probably be deleted as useEffect with an empty dependency array will do the same thing.
 - **Usage**:
+
   ```typescript
   import { useEffectOnce } from 'hooks/useEffectOnce';
 
@@ -79,6 +83,7 @@ Below is the documentation for the custom hooks available in the `src/client/src
 
 - **Purpose**: To get selected nodes in a flow.
 - **Usage**:
+
   ```typescript
   import { useGetSelectedFlowNodes } from 'hooks/useGetSelectedFlowNodes';
 
@@ -93,6 +98,7 @@ Below is the documentation for the custom hooks available in the `src/client/src
 
 - **Purpose**: To check if an element is overflowing its boundary.
 - **Usage**:
+
   ```typescript
   import { useIsOverflowing } from 'hooks/useIsOverflowing';
 
@@ -107,11 +113,11 @@ Below is the documentation for the custom hooks available in the `src/client/src
   };
   ```
 
-
 ### [useLocalStorage](https://github.com/mimir-org/mimir/blob/dev/src/client/src/hooks/useLocalStorage.ts)
 
 - **Purpose**: To read and write data to local storage.
 - **Usage**:
+
   ```typescript
   import { useLocalStorage } from 'hooks/useLocalStorage';
 
@@ -130,15 +136,16 @@ Below is the documentation for the custom hooks available in the `src/client/src
 
 - **Purpose**: To detect clicks outside a given element.
 - **Usage**:
+
   ```typescript
   import { useOutsideClick } from 'hooks/useOutsideClick';
 
   const DropdownComponent = () => {
     const ref = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
-  
+
     useOutsideClick(ref, () => setIsOpen(false));
-  
+
     return (
         <div ref={ref}>
             <button onClick={() => setIsOpen(!isOpen)}>Toggle Dropdown</button>
@@ -147,4 +154,3 @@ Below is the documentation for the custom hooks available in the `src/client/src
     );
   };
   ```
-

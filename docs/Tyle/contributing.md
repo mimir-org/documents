@@ -1,7 +1,7 @@
 # How to contribute
 
 We are open to, and grateful for, any contributions made by the community 🥳  
-By contributing to __:TYLE__, you agree to abide by the [code of conduct](https://dotnetfoundation.org/about/code-of-conduct).
+By contributing to **:TYLE**, you agree to abide by the [code of conduct](https://dotnetfoundation.org/about/code-of-conduct).
 
 ## Reporting bugs and requesting features
 

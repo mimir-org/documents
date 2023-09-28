@@ -14,8 +14,6 @@ This is most often (read always) a result of incorrect environment variables som
 
 </details>
 
-
-
 # I need to clean up my database, how can I do this?
 
 <details>
@@ -65,7 +63,6 @@ CREATE Database MimirorgAuthentication
 
 </details>
 
-
 <details>
 <summary>
 ModelBuilder kill script
@@ -88,7 +85,7 @@ INSERT INTO [ModelBuilder].[dbo].[CollaborationPartner] VALUES ('Aibel', 'aibel.
 ---------------------------------------------------------------------
 --USE master
 --GO
---xp_readerrorlog 0, 1, N'Server is listening on' 
+--xp_readerrorlog 0, 1, N'Server is listening on'
 --GO
 ```
 
@@ -138,7 +135,7 @@ CREATE Database ModelBuilder
 ---------------------------------------------------------------------
 --USE master
 --GO
---xp_readerrorlog 0, 1, N'Server is listening on' 
+--xp_readerrorlog 0, 1, N'Server is listening on'
 --GO
 ```
 

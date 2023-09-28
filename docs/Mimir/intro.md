@@ -3,6 +3,7 @@ sidebar_position: 1
 ---
 
 ![logo](Overview/img/mimirDarkLogo.png)
+
 <div align="center">
   <p>
     A tool for building semantically supported facility data!

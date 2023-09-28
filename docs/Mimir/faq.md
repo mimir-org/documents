@@ -2,8 +2,9 @@
 
 ## Known problems
 
+### I have a white screen, what do I do?
 <details>
-<summary>I have a white screen, what do I do?</summary>
+<summary>Solution</summary>
 
 This is most often (read always) a result of incorrect environment variables somewhere. Checklist:
 

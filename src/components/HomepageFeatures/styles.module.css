@@ -3,10 +3,12 @@
   align-items: center;
   padding: 2rem 0;
   width: 100%;
+  padding-top: 96px;
 }
 
 .featureImage {
-  height: 200px;
+  height: 124px;
   width: 200px;
   object-fit: contain;
+  padding: 0 24px;
 }

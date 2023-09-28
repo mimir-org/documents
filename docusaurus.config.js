@@ -58,7 +58,7 @@ const config = {
       algolia: {
         appId: "JWGV6PUW59",
         apiKey: "4058413b4cb33cd7bae2027afc566c7f",
-        indexName: "unments",
+        indexName: "uments",
         contextualSearch: true,
       },
       navbar: {

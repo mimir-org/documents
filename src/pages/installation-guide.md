@@ -28,12 +28,8 @@ Other tools:
 - Datagrip (database management)
 - SQL Server Management Studio
 
-Of these, you **must** install Docker or equivalent to run the MSSQL database.
-
-Furthermore, you need to log into the Equinor system to acquire a Docker license. This can be done
-at https://connectit.equinor.com/. Then, go to https://accessit.equinor.com through a browser via ConnectIT. You must
-also request access to Outlook and your own email to achieve this, plus the developer course that you must take once a
-year.
+Of these, you **must** install Docker or equivalent to run the MSSQL database (you can also connect it to any mssql
+database, but this is not covered in this documentation.
 
 ## Where Can I Find the Code?
 
@@ -136,24 +132,29 @@ For Mimir to function, you need to have all the code on your machine. This can b
 
 </details>
 
-4. Der er andre .env filer i frontendkoden, men for det meste slipper du å bry deg om dette. Det mest interessante her
-   er nok **silent** mode. Denne bør nok være *true* når du driver med utvikling lokalt, da denne modusen ignorerer en
-   del autentisering. Løsningen vil nok mest sannsynlig kræsje uten, noe som fører til hvit skjerm på frontendsiden.
+4. There are other .env files in the frontend code, but for the most part, you don't have to worry about this. The most
+   interesting thing here is probably silent mode. This should probably be true when you are developing locally, as this
+   mode ignores some authentication. The solution will most likely crash without it, leading to a white screen on the
+   frontend.
 
-### Automatisk installasjon
+### Automatic Installation
 
-Spinn opp all koden med en docker-compose fil.
+Spin up all the code with a docker-compose file.
 
-1. Installer [docker](https://www.docker.com/)
-2. Finn et sted å laste ned koden til slik at du får denne mappestrukturen:
-    - 📁 mimirorg (denne kan renames til det du vil)
-        - 📁 component-library
-            - 📁 etc
-        - 📁 mimir
-            - 📁 etc
-        - 📁 typelibrary
-            - 📁 etc
-3. Lag en ny .yaml fil og lim inn følgende kode.
+1. Install docker
+2. Find a place to download the code so that you get this folder structure:
+
+```
+📁 mimirorg (this can be renamed to whatever you want)
+├── 📁 component-library
+│   └── 📁 etc
+├── 📁 mimir
+│   └── 📁 etc
+└── 📁 typelibrary
+    └── 📁 etc
+```
+
+3. Create a new .yaml file and paste the following code.
 
 <details>
 <summary>docker-compose.yaml</summary>
@@ -283,49 +284,63 @@ networks:
 
 </details>
 
-4. Plasser denne yaml filen som vist under:
-    - 📁 mimirorg (denne kan renames til det du vil)
-        - 🐋 docker-compose.yaml
-        - 📁 component-library
-            - 📁 etc
-        - 📁 mimir
-            - 📁 etc
-        - 📁 typelibrary
-            - 📁 etc
-6. Deretter kjører du docker compose filen fra kommandolinjen.
-   `docker compose up -d` fra mappen der filen ligger.
-6. Når alt er oppe å kjører så skal du få opp de forskjellige sidene på:
-   http://localhost:3000
-   http://localhost:3001
-   http://localhost:5000
-   http://localhost:5001
-7. For å kjøre desse lokalt så er du nødt til å stoppe containeren som du har lyst til å kjøre lokalt i eksempelvis
-   Visual Studio.
+4. Place this yaml file as shown below:
+
+```
+📁 mimirorg (this can be renamed to whatever you want)
+├── 📁 component-library
+│   └── 📁 etc
+├── 📁 mimir
+│   └── 📁 etc
+├── 📁 typelibrary
+│   └── 📁 etc
+└── 🐋 docker-compose.yaml
+```
+
+5. Then run the docker-compose file from the command line. Use docker-compose up -d from the folder where the file is
+   located.
+6. Once everything is up and running, you should be able to access the different pages
+   at: http://localhost:3000, http://localhost:3001, http://localhost:5000, http://localhost:5001.
+
+<details>
+<summary>See more details</summary>
+
+```bash
+CONTAINER ID   IMAGE                                            COMMAND                   CREATED         STATUS         PORTS                           NAMES
+b89d794be253   mimirorg_mimir-server                            "dotnet ModelBuilder…"    9 seconds ago   Up 7 seconds   443/tcp, 0.0.0.0:5000->80/tcp   mimirserver
+84e7600fdcf9   mimirorg_tyle-server                             "dotnet TypeLibrary.…"    9 seconds ago   Up 7 seconds   443/tcp, 0.0.0.0:5001->80/tcp   tyleserver
+ed558855c314   mimirorg_mimir-client                            "/bin/sh -c '\"./star…"   9 seconds ago   Up 7 seconds   0.0.0.0:3000->80/tcp            mimirclient
+42d843407f0d   mimirorg_tyle-client                             "/bin/sh -c '\"./star…"   9 seconds ago   Up 7 seconds   0.0.0.0:3001->80/tcp            tyleclient
+d914b6d4d538   mcr.microsoft.com/mssql/server:2017-CU8-ubuntu   "/opt/mssql/bin/sqls…"    9 seconds ago   Up 7 seconds   127.0.0.1:1433->1433/tcp        mssql
+```
+
+</details>
+
+7. To run these locally, you will need to stop the container you want to run locally in, for example, Visual Studio.
 
 ## Mimir frontend og Yalc
 
 https://github.com/wclr/yalc
 
-Yalc er en måte å koble npm pakkeutvikling sammen med dev miljø. Det gjør det mulig for oss å utvikle komponenter i
-component-library og dynamisk oppdatere disse lokalt slik at man slipper å lansere en ny pakke på npm for hver endring
-av kode.
+Yalc is a way to connect npm package development with the dev environment. It allows us to develop components in the
+component-library and dynamically update them locally so that you don't have to release a new package on npm for every
+code change.
 
-installer yalc med
-`npm i yalc -g`
+Install yalc with npm i yalc -g
 
-Deretter er du klar til å bruke det.
+Then you are ready to use it.
 
-- Naviger til `component-library/app mappen`
-- Kjør kommandoen `yalc publish`
-- Naviger til `/mimirorg/mimir/src/client`
-- Kjør kommandoen `yalc add @mimirorg/component-library`
-- Nå kan du kjøre mimir som normalt ved å først installere pakkene `npm i` for så å kjøre det lokalt med `npm run start`
-  eller `npm run`.
+- Navigate to the component-library/app folder
+- Run the command yalc publish
+- Navigate to /mimirorg/mimir/src/client
+- Run the command yalc add @mimirorg/component-library
+- Now you can run mimir as usual by first installing the packages with npm i and then running it locally with npm run
+  start or npm run.
 
-## Docker compose filer
+## Docker-compose files
 
-Av og til er det nyttig å kjøre tyle eller mimir separat for å slippe å ha flere Visual Studio instanser kjørende
-samtidig. Da kan disse filene vere nyttige å ha.
+Sometimes it's useful to run tyle or mimir separately to avoid having multiple Visual Studio instances running
+simultaneously. These files can be useful to have.
 
 ### Compose file for the whole solution
 
@@ -664,22 +679,22 @@ networks:
 
 </details>
 
-## Etter installasjon
+## After installation
 
-### Lag en bruker
+### Create a user
 
-Det første du må gjøre etter installasjon er å starte tyle backend, databasen og frontend. Deretter registrerer du en ny
-bruker gjennom frontenden. Etter registrering får du beskjed om å vente på en epost, denne kommer aldri, for den ligger
-her: `/mimirorg/typelibrary/src/server/TypeLibrary.Api/bin/Debug/net7.0/Data/Mail`. Her kan det vere lurt å sortere
-etter sist endret slik at den siste eposten du mottok kommer på toppen.
+The first thing you need to do after installation is to start the tyle backend, the database, and the frontend. Then
+register a new user through the frontend. After registration, you will be told to wait for an email, which will never
+come, because it is located here: /mimirorg/typelibrary/src/server/TypeLibrary.Api/bin/Debug/net7.0/Data/Mail. It may be
+useful to sort by last modified so that the last email you received is at the top.
 
-Deretter logger du inn. Siden der har skjedd noen endringer i tyle backenden i det siste så er der noen steg du må gå
-gjennom før du får en fullverdig bruker, disse er avhengig av hvor vi er i prosessen, så her er det foreløpig dårlig med
-dokumentasjon, forhåpentligvis så funker det uten noen problem. Problemet du kanskje støter på er at det ikke eksisterer
-noe selskap i backend koden din fra før, så her må man koble seg på databasen til løsningen og legge til denne
-informasjonen, da det ikke blir gjort automatisk lenger.
+Then log in. Since there have been some changes in the tyle backend recently, there are some steps you need to go
+through before you get a fully functional user. These depend on where we are in the process, so the documentation is
+currently lacking. Hopefully, it works without any problems. The problem you may encounter is that there is no existing
+company in your backend code, so you will need to connect to the database of the solution and add this information, as
+it is no longer done automatically.
 
-Skriv gjerne inn stegene du må gjennom for å løse dette problemet når/hvis det skjer.
+Feel free to write down the steps you need to go through to solve this problem when/if it occurs.
 
 ## FAQ
 

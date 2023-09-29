@@ -4,13 +4,16 @@ title: Installation guide
 
 ## Installation guide
 
+:::note
 Tyle and Mimir have a very large and complex domain, which is not always easy to understand. Therefore, there's no shame
 in asking for help. This is a minimalist, almost "installation guide" for the code. It won't go into great depth, as
 that's something best discussed face-to-face, but it's intended as a sort of "Here's how you hopefully run the code."
+:::
 
 ## Tools
 
 The team uses the tools they are most comfortable with, but here are some examples:
+
 Frontend code:
 
 - VSCode
@@ -28,13 +31,15 @@ Other tools:
 - Datagrip (database management)
 - SQL Server Management Studio
 
+:::info
 Of these, you **must** install Docker or equivalent to run the MSSQL database (you can also connect it to any mssql
 database, but this is not covered in this documentation.
+:::
 
 ## Where Can I Find the Code?
 
-The code for Mimir can be found here https://github.com/mimir-org under the Mimir repository. The project can be cloned
-to your machine with `git@github.com:mimir-org/mimir.git` via SSH or `gh repo clone mimir-org/mimir`
+The code for Tyle and Mimir can be found here https://github.com/mimir-org under the Mimir repository. The project can be cloned
+to your machine with `git@github.com:mimir-org/<repository>.git` via SSH or `gh repo clone mimir-org/<repository>`
 with [GitHub CLI](https://cli.github.com/).
 
 ### Tyle
@@ -57,85 +62,10 @@ git clone git@github.com:mimir-org/component-library.git
 
 ## How Do I Install the Code on My Machine?
 
-For Mimir to function, you need to have all the code on your machine. This can be done in several different ways.
-
-### Manual Installation
-
-1. Start an MSSQL database running on port 1433 locally on your machine using Docker (or equivalent).
-2. Clone all the repositories under mimir-org (typelibrary, mimir, and component-library) and run them following the
-   instructions in the ReadMe files of the different repositories. It might be wise to run the different projects in
-   this order, at least the first time:
-    - Tyle backend
-    - Tyle frontend
-    - Mimir backend
-    - Mimir frontend
-3. After installation, you must add the following env file:
-    - `/mimir/src/service/ModelBuilder.Api/appsettings.local.json`
-
-<details>
-<summary>appsettings.local.json</summary>
-
-```json
-{
-  "ApplicationSetting": {
-    "TypeLibraryRootUri": "http://localhost:5001/",
-    "TypeLibraryVersion": "v1",
-    "TypeLibrarySecret": "cedf6a1af9917f6ac2fd8f7a0f4610b418a72c4ac9557cf2256e4ec2226b2060",
-    "TypeLibraryDomain": "runir.net"
-  },
-  "Logging": {
-    "LogLevel": {
-      "Default": "Error",
-      "Microsoft": "Warning",
-      "Microsoft.Hosting.Lifetime": "Warning",
-      "Microsoft.EntityFrameworkCore.Database.Command": "Warning",
-      "Mb.Services": "Information",
-      "EventHubModule": "Error"
-    },
-    "Console": {
-      "IncludeScopes": true,
-      "LogLevel": {
-        "Default": "Error",
-        "Microsoft": "Warning",
-        "Microsoft.Hosting.Lifetime": "Warning",
-        "Microsoft.EntityFrameworkCore.Database.Command": "Warning",
-        "Mb.Services": "Information",
-        "EventHubModule": "Error"
-      }
-    }
-  },
-  "AllowedHosts": "*",
-  "AzureActiveDirectoryConfiguration": {
-    "Instance": "https://login.microsoftonline.com/",
-    "TenantId": "3aa4a235-b6e2-48d5-9195-7fcf05b459b0",
-    "ClientId": "2967244a-662f-4462-82bd-7f9bca0a3683",
-    "ClientSecret": null,
-    "CallbackPath": "/signin-oidc",
-    "SignedOutCallbackPath": "/signout-oidc",
-    "Silent": true
-  },
-  "CorsConfiguration": {
-    "ValidOrigins": "http://localhost:3000"
-  },
-  "DatabaseConfiguration": {
-    "DataSource": "127.0.0.1",
-    "Port": 1433,
-    "InitialCatalog": "ModelBuilder",
-    "DbUser": "sa",
-    "Password": "P4ssw0rd1",
-    "Timeout": 150,
-    "ConnectRetryCount": 15,
-    "ConnectRetryInterval": 10
-  }
-}
-```
-
-</details>
-
-4. There are other .env files in the frontend code, but for the most part, you don't have to worry about this. The most
-   interesting thing here is probably silent mode. This should probably be true when you are developing locally, as this
-   mode ignores some authentication. The solution will most likely crash without it, leading to a white screen on the
-   frontend.
+:::info
+We recommend cloning all the repos before trying to start them, as they are dependent on each other. Especially Mimir,
+which needs all of the repos to be able to run.
+:::
 
 ### Automatic Installation
 
@@ -318,7 +248,97 @@ d914b6d4d538   mcr.microsoft.com/mssql/server:2017-CU8-ubuntu   "/opt/mssql/bin/
 
 7. To run these locally, you will need to stop the container you want to run locally in, for example, Visual Studio.
 
-## Mimir frontend og Yalc
+### Manual Installation (not recommended)
+
+<details>
+<summary>
+Manual installation details
+</summary>
+
+:::caution
+This is just the general idea of how to do this and is not tested by the developer team, we strongly suggest you stick
+to using our `docker-compose.yml` files below!
+:::
+
+1. Start an MSSQL database running on port 1433 locally on your machine using Docker (or equivalent).
+2. Clone all the repositories under mimir-org (typelibrary, mimir, and component-library) and run them following the
+   instructions in the ReadMe files of the different repositories. It might be wise to run the different projects in
+   this order, at least the first time:
+    - Tyle backend
+    - Tyle frontend
+    - Mimir backend
+    - Mimir frontend
+3. After installation, you must add the following env file:
+    - `/mimir/src/service/ModelBuilder.Api/appsettings.local.json`
+
+<details>
+<summary>appsettings.local.json</summary>
+
+```json
+{
+  "ApplicationSetting": {
+    "TypeLibraryRootUri": "http://localhost:5001/",
+    "TypeLibraryVersion": "v1",
+    "TypeLibrarySecret": "cedf6a1af9917f6ac2fd8f7a0f4610b418a72c4ac9557cf2256e4ec2226b2060",
+    "TypeLibraryDomain": "runir.net"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Error",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Warning",
+      "Microsoft.EntityFrameworkCore.Database.Command": "Warning",
+      "Mb.Services": "Information",
+      "EventHubModule": "Error"
+    },
+    "Console": {
+      "IncludeScopes": true,
+      "LogLevel": {
+        "Default": "Error",
+        "Microsoft": "Warning",
+        "Microsoft.Hosting.Lifetime": "Warning",
+        "Microsoft.EntityFrameworkCore.Database.Command": "Warning",
+        "Mb.Services": "Information",
+        "EventHubModule": "Error"
+      }
+    }
+  },
+  "AllowedHosts": "*",
+  "AzureActiveDirectoryConfiguration": {
+    "Instance": "https://login.microsoftonline.com/",
+    "TenantId": "3aa4a235-b6e2-48d5-9195-7fcf05b459b0",
+    "ClientId": "2967244a-662f-4462-82bd-7f9bca0a3683",
+    "ClientSecret": null,
+    "CallbackPath": "/signin-oidc",
+    "SignedOutCallbackPath": "/signout-oidc",
+    "Silent": true
+  },
+  "CorsConfiguration": {
+    "ValidOrigins": "http://localhost:3000"
+  },
+  "DatabaseConfiguration": {
+    "DataSource": "127.0.0.1",
+    "Port": 1433,
+    "InitialCatalog": "ModelBuilder",
+    "DbUser": "sa",
+    "Password": "P4ssw0rd1",
+    "Timeout": 150,
+    "ConnectRetryCount": 15,
+    "ConnectRetryInterval": 10
+  }
+}
+```
+
+</details>
+
+4. There are other .env files in the frontend code, but for the most part, you don't have to worry about this. The most
+   interesting thing here is probably silent mode in Mimir. This needs to be set to `true` when you are developing locally, as this
+   mode ignores some authentication. The solution will most likely crash without it, leading to a white screen on the
+   frontend.
+
+</details>
+
+## Mimir frontend and Yalc
 
 https://github.com/wclr/yalc
 
@@ -326,14 +346,18 @@ Yalc is a way to connect npm package development with the dev environment. It al
 component-library and dynamically update them locally so that you don't have to release a new package on npm for every
 code change.
 
-Install yalc with npm i yalc -g
+Install yalc with 
 
-Then you are ready to use it.
+```bash
+npm i yalc -g
+```
 
-- Navigate to the component-library/app folder
+Now you are ready to use it.
+
+- Navigate to the `component-library/app` folder
 - Run the command yalc publish
-- Navigate to /mimirorg/mimir/src/client
-- Run the command yalc add @mimirorg/component-library
+- Navigate to `/mimirorg/mimir/src/client`
+- Run the command yalc add `@mimirorg/component-library`
 - Now you can run mimir as usual by first installing the packages with npm i and then running it locally with npm run
   start or npm run.
 

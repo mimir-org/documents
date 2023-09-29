@@ -1,49 +1,108 @@
 
 9
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-L
-docusaurus-docs/package.json,3/7/37b94d521eb9cab263528a39dade4d737a3cc3ea
-I
-docusaurus-docs/README.md,b/6/b6f7498aab5f719f96f17c3b7ed5ab00b274cac0
-D
-concept/decisions.md,6/f/6f5e25eeee5901fda1f6c0128fded05be96727a2
-Z
-*docusaurus-docs/src/pages/markdown-page.md,6/0/60b52a518157bec5cb58592d959c960794219a5e
-Z
-*docusaurus-docs/src/pages/index.module.css,4/7/4779822aefc05340c29905c6f3aee4ccd424d110
-M
-docusaurus-docs/docs/intro.md,4/a/4afefecff90338b7a09c899a5cdd61196bbe45b3
 ]
--docusaurus-docs/docs/Overview/_category_.json,d/7/d71cfff2b4e91ff9f5606a888d7143ebf80622b8
+-.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e
+S
+#.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+L
+Old docs/concept/RDS_streams,3/0/30fa01e377100b79ccdf467242a8c5264eb56c14
 f
-6docusaurus-docs/docs/Resterende arbeid/_category_.json,6/a/6a7afe43f3a878eb156d0ca4e262b9937960fbac
-W
-'docusaurus-docs/static/img/tyleLogo.svg,0/a/0a01fddab2e0facab9c1c48a117116ea74b7b511
-K
-docusaurus-docs/sidebars.js,4/4/449f1615ab474477825e4c9227b0091de917415d
-R
-"docusaurus-docs/src/pages/index.js,d/f/dfe56e931d707791f28d1455cb40432c26f4c042
-q
-Adocusaurus-docs/src/components/HomepageFeatures/styles.module.css,5/1/51bf9f5a33d134e5caca9d7ab7c32945f8d0d695
-h
-8docusaurus-docs/src/components/HomepageFeatures/index.js,e/5/e5ba39abe64c1f96de314d7ed80dee42a5e1ea58
-T
-$docusaurus-docs/docusaurus.config.js,6/e/6e761a56b20bec5a6fcb794e9fd2fabcd7c30b18
-k
-;docusaurus-docs/docs/Overview/adding-new-redux-component.md,9/6/963d25f2d4d3abed3da03e16eb72c6145c90f05f
-\
-,docusaurus-docs/docs/Hooks/useAppSelector.md,b/b/bb5d40ab127c5608465aa8f77c3d4862ae6ff3ef
-\
-,docusaurus-docs/docs/Overview/react-redux.md,0/0/008cd39973b27ea5c53a5dac2e70cca94f3415ce
-e
-5docusaurus-docs/docs/Overview/react-redux-pitfalls.md,1/f/1fb84263be64a36fce0a13af790dfa480d54ed41
-_
-/docusaurus-docs/docs/Overview/state-mutation.md,1/4/14ffcde4c5d8a5ee105aa74e5199d17ef9a1e75d
-e
-5docusaurus-docs/docs/Overview/react-redux-detailed.md,2/6/264d56decae512e9621a88cf6e838ca8c96d6521
-Z
-*docusaurus-docs/docs/Hooks/_category_.json,a/f/afc4d2880509b784716fca83537202978c079ae0
-k
-;docusaurus-docs/docs/Resterende arbeid/resterende-arbeid.md,7/4/7443755c36fa0290346327d6dccbffab9c196944
+6Old docs/architecture/tyle_architecture_overall.drawio,7/c/7cfa6970db793a454134cda306d97bde09190f17
+j
+:Old docs/architecture/tyle_access_control_user_flow.drawio,5/f/5f4f1f9acc8d93a954650c0ef4bf4a8e90b47838
+g
+7Old docs/architecture/mimir_architecture_overall.drawio,d/a/da3b848ff3a415acb2ead6a49119486ae75533b2
+`
+0Old docs/architecture/tyle_access_control.drawio,7/3/73cb92d1b8dd11851a0fa644468e65cbf0863b4b
+p
+@Old docs/architecture/tyle_access_control_acceptance_flow.drawio,2/a/2af1c919bd924a3d42331f8f5577b6a1ea023450
+G
+static/img/tyleLogo.svg,5/a/5a0305e84249af984f3a390fc3edd7e594a87837
+@
+static/.nojekyll,f/d/fd7d73d8c4e2432f1debe39a5e0af7d5f272712f
+V
+&static/img/undraw_docusaurus_react.svg,2/d/2d30c4a4989ec5e8231c04a35055dcc63f8c3f6a
 Y
-)docusaurus-docs/docs/Hooks/customHooks.md,c/4/c4955d52f676f816fd3a211f6d39dcae5d7185f1
+)static/img/undraw_docusaurus_mountain.svg,9/0/90239e86809e24b8de8fd20d55aa20ae3589c942
+I
+Old docs/concept/RDS_FSBs,9/6/9616f3e1d1128f16834c3b36056dde856959c4bb
+C
+static/img/logo.svg,f/6/f6c7f0e2f00296f4b869f50c11a4012a019688af
+U
+%static/img/undraw_docusaurus_tree.svg,6/b/6b7d3d4dc2c48d5e6c55fc242ad113d2c71a1377
+J
+docs/Tyle/img/tyleLogo.svg,f/f/ffb03de116dd15333399a20f73063747bfeb60b6
+D
+docs/Tyle/license.md,b/b/bb284896106700f4e799a03108a4a4ed16c8ba7d
+J
+.github/workflows/main.yml,c/7/c778226b6c4c0fb51cf7942c8ee1f3d9fc1249d0
+S
+#docs/Mimir/Overview/_category_.json,e/8/e8048a3a7b0646ef8a250a1bd67c40743615afe9
+R
+"docs/TyleUserDocs/creatingTypes.md,1/3/13507024e266d4e409a4c7099d95a25cefd8c270
+[
++docs/Mimir/Remaining work/new-components.md,3/c/3c707ed287413fee05be4cef6a24604ed7bc8de3
+Y
+)docs/Mimir/Remaining work/_category_.json,6/1/616e673902ddbb2fca19e2a73d1657e3c14b735d
+?
+babel.config.js,7/7/775bd43a34022cef87b6af825cbd551f29473f73
+X
+(src/components/HomepageFeatures/index.js,0/e/0eed7e26ee35bdc611a03b3011a7f1dc3878832c
+O
+src/pages/installation-guide.md,2/2/227a7ed5d1bb6baac316591b01762c7430953d5c
+I
+docs/Tyle/contributing.md,5/8/58b5a471f2cfd476d22fdfa4dc0bfbde7f1435fb
+R
+"docs/Mimir/Hooks/useAppSelector.md,1/7/17aa7daa964158901d64be2efa3bce8b54d565e8
+[
++docs/Mimir/Overview/react-redux-pitfalls.md,7/1/712f859ad0959d2bde789a6ea459434a286aeb4e
+J
+docs/TyleUserDocs/intro.md,e/4/e4079440ba357b7a63e8f6b893dc59b6e13a5edd
+E
+docs/Mimir/license.md,5/5/55e15fdb84cdeb77036594b7c9452e36d3d98ed3
+H
+docs/Mimir/contribute.md,d/5/d5c1f6b50be7d3c748b197e960e28685cf5f2ebe
+A
+package-lock.json,f/a/fa288d1472d29beccb489a676f68739ad365fc47
+C
+docs/Mimir/intro.md,5/b/5bd298740194e9f80ff671ac0bd40a27d387526a
+a
+1docs/Mimir/Remaining work/moving-of-components.md,7/3/73cbd3091a634939014fa807b54a8e18d1cc7c05
+R
+"docs/Mimir/Overview/react-redux.md,e/f/ef172311b6173e61e3adb108eb6d0f5f1c422bf6
+U
+%docs/TyleUserDocs/registering-user.md,d/3/d397ed7e5b1779e433ca7d42d299202ec6ee76b8
+[
++docs/Mimir/Overview/react-redux-detailed.md,6/0/60d380f9eb2c97239424e7c1157b1eb5e2c25198
+B
+docs/Tyle/intro.md,b/0/b0817627d3e2616a4cb01dff53d589ac105808ae
+J
+src/pages/index.module.css,6/5/65d6f5fad14b040fa3c11667162d8b22d4ace350
+;
+sidebars.js,f/c/fcc2be86d21225f7726b211d1cd2d22027ffd20a
+<
+package.json,7/0/7030d0b2f71b999ff89a343de08c414af32fc93a
+a
+1src/components/HomepageFeatures/styles.module.css,9/a/9aa965e7c3569d3e9536b10f62fd7084140573f0
+B
+src/pages/index.js,c/1/c16ef34da304c300e7b6c91b3a47fea77c278c7a
+B
+src/css/custom.css,1/d/1df57401c629467a6b612fdf469ffde132fcfe35
+D
+docusaurus.config.js,d/7/d7dad56a7ec58537fe76e249a44cd471cb7f300d
+O
+docs/Mimir/Hooks/customHooks.md,5/c/5cd18cd569735c9606819708324dc8cf038aa47f
+K
+docs/MimirUserDocs/intro.md,9/6/96b25c7b259cf32207e451a72fd6a8e8834a51f0
+A
+docs/Mimir/faq.md,9/b/9b6f68f45ffdc150269e790fd07a59b7fe419a63
+P
+ docs/Mimir/Hooks/_category_.json,a/d/adc4d6304d8552f7e3d5f9d823ace40499d450f2
+@
+docs/Tyle/faq.md,9/1/91ad13e376bbfe7caa7d1f3a235389cd77b9709f
+M
+Old docs/concept/decisions.md,a/0/a01d135f8951ae6e69ceb09a51b6379eade95ab1

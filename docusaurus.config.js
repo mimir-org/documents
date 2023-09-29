@@ -40,8 +40,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl:
-            "https://github.com/mimir-org/documents/tree/main/docusaurus-docs/",
+          editUrl: "https://github.com/mimir-org/documents/tree/main/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

@@ -346,13 +346,11 @@ Yalc is a way to connect npm package development with the dev environment. It al
 component-library and dynamically update them locally so that you don't have to release a new package on npm for every
 code change.
 
-Install yalc with 
+Install yalc with:
 
 ```bash
 npm i yalc -g
 ```
-
-Now you are ready to use it.
 
 - Navigate to the `component-library/app` folder
 - Run the command yalc publish
@@ -709,8 +707,15 @@ networks:
 
 The first thing you need to do after installation is to start the tyle backend, the database, and the frontend. Then
 register a new user through the frontend. After registration, you will be told to wait for an email, which will never
-come, because it is located here: /mimirorg/typelibrary/src/server/TypeLibrary.Api/bin/Debug/net7.0/Data/Mail. It may be
-useful to sort by last modified so that the last email you received is at the top.
+come, because it is located here:
+
+```
+/mimirorg/typelibrary/src/server/TypeLibrary.Api/bin/Debug/net7.0/Data/Mail
+```
+
+:::tip
+It may be useful to sort by last modified so that the last email you received is at the top.
+:::
 
 Then log in. Since there have been some changes in the tyle backend recently, there are some steps you need to go
 through before you get a fully functional user. These depend on where we are in the process, so the documentation is

@@ -1,7 +1,9 @@
 # New Components and Functionality
 
-> NOTE: When it comes to displaying elements, it's important that elements are only visually removed, not actually
-> removed from the tree, as this will cause the project state to change via React Flow.
+:::caution Note
+When it comes to displaying elements, it's important that elements are only visually removed, not actually
+removed from the tree, as this will cause the project state to change via React Flow.
+:::
 
 ## Main Menu
 

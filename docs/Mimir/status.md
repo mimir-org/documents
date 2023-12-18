@@ -20,7 +20,8 @@ The team's main focus is project storage. In order to save, the data model first
 save projects, but not update existing projects.
 
 The backend is ready to receive this data from the frontend. Mimir has an advanced state management in the web
-application which is based on Redux Saga. In the Mimir backend, much of the previous functionality has been commented
+application which is based on Redux and Saga for doing api-calls based on redux dispatch. In the Mimir backend, much of
+the previous functionality has been commented
 out as these break with the new IMF model and are intended to be reimplemented when the project is mature.
 
 Shortly after this was carried out, it was decided that the team should have all resources at Tyle for various reasons (
@@ -37,7 +38,9 @@ team size, focus on one product instead of two semifinished products).
     - Filter functions in both the library module and the drawing surface
     - Block view
     - Terminal connections
-- Mimir backend is also in a transitional state. Where alot of code is commented out as it breaks with the new IMF
+    - Navbar menu
+    - Project creation (constructor is hardcoded)
+- Mimir backend is also in a transitional state. Where a lot of code is commented out as it breaks with the new IMF
   model.
 - Mimir frontend and backend also bears the mark of not having been tested against each other when refactored. And the
   communication between front and backend is lackluster. And is a potential break point in future development.

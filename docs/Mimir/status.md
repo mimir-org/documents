@@ -4,7 +4,7 @@
 
 In 2023, Mimir began a major refactoring of which we can see the effect today, and Mimir is not in a running condition
 as before. The motivation behind the refactor was that Mimir was in an unreliable and unstable state. So the customer
-wanted us to clean up the code and make i robust.
+wanted us to clean up the code and make it more robust and easier to read and mantain.
 
 Major changes have been made to the project, and you can see the outline of being well on the way to a new
 MVP. One of the things that was decided was to move a lot of functionality in the frontend to a common component
@@ -24,7 +24,7 @@ application which is based on Redux and Saga for doing api-calls based on redux 
 the previous functionality has been commented
 out as these break with the new IMF model and are intended to be reimplemented when the project is mature.
 
-Shortly after this was carried out, it was decided that the team should have all resources at Tyle for various reasons (
+Shortly after this was carried out, it was decided that the team should have all resources at Tyle for various reasons (i.e. 
 team size, focus on one product instead of two semifinished products).
 
 ## Summary

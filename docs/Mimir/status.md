@@ -44,3 +44,6 @@ team size, focus on one product instead of two semifinished products).
   model.
 - Mimir frontend and backend also bears the mark of not having been tested against each other when refactored. And the
   communication between front and backend is lackluster. And is a potential break point in future development.
+
+In order to continue the development of Mimir as of now, the team suggest the new contributor to run backend, do some Swagger api calls
+and continue connecting frontend to backend. Saving of project has been started on but not finished.

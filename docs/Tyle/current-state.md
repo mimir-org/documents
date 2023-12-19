@@ -53,3 +53,36 @@ implemented. It should probably also be extracted to a separate project.
 ### Tyle.Api
 
 Contains the startup code, controllers and views.
+
+## Frontend
+
+### Code structure
+
+The `src` folder contains the following folders:
+
+- `api` - contains code for communicating with the backend
+- `components` - contains the React components of the app
+- `helpers` - contains helper code that is used by more than one component
+- `hooks` - contains custom hooks that are used by more than one component
+- `types` - contains TypeScript type definitions
+
+### Unfinished parts of the application
+
+Some tasks that have been started in the frontend code has not been finished. This is mainly due to a big revamp of the
+IMF types following the release of v2.1 of the IMF manual in July 2023, which lead to a need to update many of the
+frontend components.
+
+- Attribute groups are not functional in this version of the client. The idea of attribute groups is to make it easier
+  to add attributes that are commonly applied together by bundling them in a group. A previous version of Tyle (v0.24)
+  has a working (although minimal) application of this concept.
+- Type previews, used in the About component on the right side of the home page, are either non-functional or not
+  changed according to the new data model.
+- The access page in the Settings menu is currently not functional. This page is intended as a way of notifying
+  administrators of new users that have not yet received a role granting them access to the application.
+- The approval page has the limitation that you will get an error message when trying to approve types referencing
+  non-approved types. The error message will not explain that this is the reason for the error. The approve button
+  should be disabled for these types, with a popup explaining the reason.
+- Phasing out the use of React Hook Form. Some forms in the solution still use this package, we recommend updating
+  these so that this package can be phased out.
+- There is some unused code as well as some code that is commented out in the frontend code base that should be
+  removed.

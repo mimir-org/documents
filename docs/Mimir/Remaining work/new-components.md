@@ -72,5 +72,16 @@ Lock doesn't need to be considered right now, as this functionality is to lock i
 while you're working on it. Since Mimir hasn't implemented web-sockets today, this button is also not in use. As it
 doesn't push any state changes to the backend.
 
-## Connection to Backend
+## Connection frontend to Backend
 
+Connecting to backend is possible in the current state but will cast a few exceptions. In order to get it up and running
+again is to first of all remove the query for company(as this is removed from Tyle) and ensure that data models in
+frontend are updated.
+
+After doing so, the remaining work of connection front and backend can continue.
+Note that there are several methods in backend that will respond with no or limited data as the whole Mimir project is
+in a transitional state.
+
+:::caution Note
+Given our limited knowledge there will probably be more issues tied to connecting frontend, backend and DB together.
+:::

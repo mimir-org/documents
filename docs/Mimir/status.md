@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Current status of Mimir
 
 In 2023, Mimir began a major refactoring that is still in progress.
@@ -23,6 +27,12 @@ out as these break with the new IMF model and are intended to be reimplemented w
 Mimir bears the mark of not having been tested against each other when refactored. And the
 communication between front and backend is not complete nor fully fleshed out. And is a potential break point in future
 development.
+
+# Component library
+
+Mimir and Tyle depends on generic components from the component library. This library has not been maintained properly
+and there is also a lot of app specific components that should be moved out. One should consider whether it should be
+discontinued or not.
 
 ## Summary
 

@@ -16,7 +16,7 @@ plans for development that the previous team had.
 The source code is available at [Github](https://github.com/mimir-org/tyle). The project has a C# backend and a React
 frontend. It also needs a SQL server to run, for instance [MSSQL](https://www.microsoft.com/en-us/sql-server/).
 
-### :key: Environment Variables
+### Environment Variables
 
 <details>
 <summary>Client</summary>

@@ -10,7 +10,7 @@ This is most often (read always) a result of incorrect environment variables som
 
 - Is the frontend set to `REACT_APP_SILENT = true`?
 - Does your user have a company in the database, and is the secret for this company set in Mimir's `appsettings.json`,
-  e.g., `"TypelibrarySecret": "secretHash"`?
+  e.g., `"Tyle": "secretHash"`?
 - Does the domain in Mimir match the domain set in the company table (MimirorgAuthentication database).
 
 </details>
@@ -19,7 +19,7 @@ This is most often (read always) a result of incorrect environment variables som
 
 <details>
 <summary>
-TypeLibrary kill script
+Tyle kill script
 </summary>
 
 ```sql
@@ -30,10 +30,10 @@ USE [master];
 DECLARE @kill varchar(8000) = '';
 SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
 FROM sys.dm_exec_sessions
-WHERE database_id = db_id('TypeLibrary')
+WHERE database_id = db_id('Tyle')
 EXEC(@kill);
-DROP DATABASE TypeLibrary
-CREATE Database TypeLibrary
+DROP DATABASE Tyle
+CREATE Database Tyle
 ---------------------------------------------------------------------
 ----------------------------------------------------------------------
 ```
@@ -105,10 +105,10 @@ USE [master];
 DECLARE @kill varchar(8000) = '';
 SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
 FROM sys.dm_exec_sessions
-WHERE database_id = db_id('TypeLibrary')
+WHERE database_id = db_id('Tyle')
 EXEC(@kill);
-DROP DATABASE TypeLibrary
-CREATE Database TypeLibrary
+DROP DATABASE Tyle
+CREATE Database Tyle
 ---------------------------------------------------------------------
 ----------------------------------------------------------------------
 --Script som kobler fra alt og alle som er tilkoblet

@@ -29,14 +29,15 @@ development.
 - Mimir frontend is in a transitional state. Where a lot of vital app components have not been re-implemented,
   re-connected or
   are partially working:
-    - Admin module
-    - Explorer module
-    - Library module
-    - Filter functions in both the library module and the drawing surface
-    - Block view
-    - Terminal connections
-    - Navbar menu
-    - Project creation (constructor is hardcoded)
+    - Admin module.
+    - Explorer module.
+    - Library module.
+    - Inspector module.
+    - Filter functions in both the library module and the drawing surface (visual filter).
+    - Block view.
+    - Terminal connections.
+    - Navbar menu.
+    - Project creation (instantiation of the constructor is hardcoded).
 - Mimir backend is also in a transitional state. Where a lot of code is commented out as it breaks with the new IMF
   model.
 

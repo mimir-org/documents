@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # FAQ
 
 ## No email from registering

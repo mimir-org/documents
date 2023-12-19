@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # How to contribute
 
 We are open to, and grateful for, any contributions made by the community 🥳  

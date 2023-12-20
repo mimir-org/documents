@@ -121,7 +121,9 @@ plans for development that the previous team had.
 <details>
 <summary>Client</summary>
 
-To set environment variables for client in development, edit the .env file. For production build, you have to set the environment variables into the container itself. You can override the .env with a .env.local file. This file is not included in git repo.
+To set environment variables for client in development, edit the .env file. For production build, you have to set the
+environment variables into the container itself. You can override the .env with a .env.local file. This file is not
+included in git repo.
 
 `REACT_APP_API_BASE_URL` - Url to backend server
 
@@ -143,13 +145,16 @@ If you are running the server locally then the values will most likely be
 
 ```js
 // where x and y = api version
-REACT_APP_API_BASE_URL = http://localhost:5001/v{x}.{y}/
-REACT_APP_SOCKET_BASE_URL = http://localhost:5001/
-REACT_APP_APP_ID = xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-REACT_APP_CLIENT_ID = xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-REACT_APP_TENANT_ID = xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+REACT_APP_API_BASE_URL = http
+://localhost:5001/v{x}.{y}/
+REACT_APP_SOCKET_BASE_URL = http
+://localhost:5001/
+REACT_APP_APP_ID = xxxxxxxx - xxxx - xxxx - xxxx - xxxxxxxxxxxx
+REACT_APP_CLIENT_ID = xxxxxxxx - xxxx - xxxx - xxxx - xxxxxxxxxxxx
+REACT_APP_TENANT_ID = xxxxxxxx - xxxx - xxxx - xxxx - xxxxxxxxxxxx
 REACT_APP_MIMIR_VERSION = 2.0
-REACT_APP_APP_INSIGHTS_CONNECTION_STRING = InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx;...
+REACT_APP_APP_INSIGHTS_CONNECTION_STRING = InstrumentationKey = xxxxxxxx - xxxx - xxxx - xxxx - xxxxxxxxxxxx;
+...
 REACT_APP_SILENT = false
 ```
 
@@ -159,7 +164,9 @@ REACT_APP_SILENT = false
 <details>
 <summary>Server</summary>
 
-To set environment variables for server in development, edit the appsettings.json file. For production build, you have to set the environment variables into the application container itself. You can override the appsettings.json with a appsettings.local.json file. This file is not included in git repo.
+To set environment variables for server in development, edit the appsettings.json file. For production build, you have
+to set the environment variables into the application container itself. You can override the appsettings.json with a
+appsettings.local.json file. This file is not included in git repo.
 
 `ASPNETCORE_ENVIRONMENT` - Set .NET core environment
 
@@ -183,7 +190,8 @@ To set environment variables for server in development, edit the appsettings.jso
 
 `AzureActiveDirectoryConfiguration__Silent` - Set authentication and authorisation in silent demo mode
 
-`CorsConfiguration__ValidOrigins` - Comma separated string of valid origins for CORS. E.g. http://localhost:3000,https://mimirorg.com
+`CorsConfiguration__ValidOrigins` - Comma separated string of valid origins for CORS.
+E.g. http://localhost:3000,https://mimirorg.com
 
 `DatabaseConfiguration__DataSource` - Identifier for database server
 
@@ -202,8 +210,7 @@ To set environment variables for server in development, edit the appsettings.jso
 ## :floppy_disk: Getting Started
 
 :::caution note
-Parts of this setup documentation may bed outdated. This can be updated when Tyle and Mimir are seperated or all
-the models in Mimir are updated to IMF 0.2.0.
+Parts of this setup documentation may be outdated. And a new revision must be written when Mimir is in a running state.
 :::
 
 <!-- Prerequisites -->
@@ -211,8 +218,10 @@ the models in Mimir are updated to IMF 0.2.0.
 ### Prerequisites
 
 This project uses .NET 6 for the server and NPM as package manager for the client,
-make sure that you have these installed before continuing. Mimir has dependency on Type Library Service, so you also need to clone that project for development purposes.
-Clone that project as well if not running on external server. You also need a MSSQL database running on your machine. See docker-compose for running sql in docker.
+make sure that you have these installed before continuing. Mimir has dependency on Type Library Service, so you also
+need to clone that project for development purposes.
+Clone that project as well if not running on external server. You also need a MSSQL database running on your machine.
+See docker-compose for running sql in docker.
 
 ### Git clone and Docker setup
 
@@ -241,7 +250,8 @@ You now have two new folders inside the 'Mimiorg' folder.
 ..\Mimirorg\typelibrary
 ```
 
-In this setup we use docker and a docker-compose script. Create a new file at the root of the 'Mimirorg' folder and name it 'docker-compose.yaml'. Copy & paste this content into the file:
+In this setup we use docker and a docker-compose script. Create a new file at the root of the 'Mimirorg' folder and name
+it 'docker-compose.yaml'. Copy & paste this content into the file:
 
 ```bash
 version: "3.8"
@@ -357,7 +367,8 @@ networks:
 
 ```
 
-To keep it simple in this example we use db user: 'sa' and db passord: 'P4ssw0rd1'. You can change this to your liking. The 'Mimirorg' folder should now look like this:
+To keep it simple in this example we use db user: 'sa' and db passord: 'P4ssw0rd1'. You can change this to your liking.
+The 'Mimirorg' folder should now look like this:
 
 ```bash
 ..\Mimirorg\mimir
@@ -393,15 +404,17 @@ d914b6d4d538   mcr.microsoft.com/mssql/server:2017-CU8-ubuntu   "/opt/mssql/bin/
 ### :running: Running Locally
 
 |                       | Client                               | Server                                               |
-| --------------------- | ------------------------------------ | ---------------------------------------------------- |
+|-----------------------|--------------------------------------|------------------------------------------------------|
 | :gear: Installation   | `cd src/client` <br /> `npm install` | `cd src/server` <br /> `dotnet build`                |
 | :running: Run Locally | `cd src/client` <br /> `npm start`   | `cd src/server/ModelBuilder.Api` <br /> `dotnet run` |
 
-You can use [Yalc](https://github.com/whitecolor/yalc) to manage local package development. It allows you to work on your local package and test it as if it were installed from NPM, without publishing it.
+You can use [Yalc](https://github.com/whitecolor/yalc) to manage local package development. It allows you to work on
+your local package and test it as if it were installed from NPM, without publishing it.
 
 ## :computer: Using Yalc for Local Development
 
-Yalc allows you to work on the "component-library" locally and test it within the "mimir" project without publishing it to NPM. Here's how you can set it up:
+Yalc allows you to work on the "component-library" locally and test it within the "mimir" project without publishing it
+to NPM. Here's how you can set it up:
 
 ### 1. Install Yalc
 
@@ -431,7 +444,8 @@ yalc add component-library
 
 ### 4. Link the Component Library (Optional)
 
-If you want to reflect the changes in the "component-library" instantly in the "mimir" project, you can use the `yalc link` command:
+If you want to reflect the changes in the "component-library" instantly in the "mimir" project, you can use
+the `yalc link` command:
 
 ```bash
 cd path/to/component-library
@@ -468,19 +482,24 @@ yalc update component-library
 
 ## :wave: Contributing
 
-We welcome community pull requests for bug fixes, enhancements, and documentation. See [How to contribute](./contribute.md) for more information.
+We welcome community pull requests for bug fixes, enhancements, and documentation.
+See [How to contribute](./contribute.md) for more information.
 
 <!-- Architecture sketches overall -->
 
 ## :department_store: Architecture
 
-Architecture sketches overall. See [Mimir overall](https://github.com/mimir-org/documents/blob/main/architecture/mimir_architecture_overall.pdf) for more information.
+Architecture sketches overall.
+See [Mimir overall](https://github.com/mimir-org/documents/blob/main/architecture/mimir_architecture_overall.pdf) for
+more information.
 
 <!-- Code of Conduct -->
 
 ### :scroll: Code of Conduct
 
-This project has adopted the code of conduct defined by the Contributor Covenant to clarify expected behavior in our community. For more information, see the [.NET Foundation Code of Conduct](https://dotnetfoundation.org/about/code-of-conduct).
+This project has adopted the code of conduct defined by the Contributor Covenant to clarify expected behavior in our
+community. For more information, see
+the [.NET Foundation Code of Conduct](https://dotnetfoundation.org/about/code-of-conduct).
 
 <!-- License -->
 

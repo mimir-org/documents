@@ -1,8 +1,10 @@
 # How to contribute
 
-We welcome community pull requests for bug fixes, enhancements, and documentation. Code and API documentation are in this repo. Conceptual documentation is in the [mimir-org documents](https://github.com/mimir-org/documents) repo.
+We welcome community pull requests for bug fixes, enhancements, and documentation. Code and API documentation are in
+this repo. Conceptual documentation is in the [mimir-org documents](https://github.com/mimir-org/documents) repo.
 
-When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
+When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other
+method with the owners of this repository before making a change.
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
@@ -88,4 +90,5 @@ This Code of Conduct is adapted from the [Contributor Covenant][homepage], versi
 available at [http://contributor-covenant.org/version/1/4][version]
 
 [homepage]: http://contributor-covenant.org
+
 [version]: http://contributor-covenant.org/version/1/4/

@@ -76,11 +76,19 @@ doesn't push any state changes to the backend.
 
 Connecting to backend is possible in the current state but will cast a few exceptions. In order to get it up and running
 again is to first of all remove the query for company(as this is removed from Tyle) and ensure that data models in
-frontend are updated.
+frontend are updated. And that all logic tied to company is removed.
 
-After doing so, the remaining work of connection front and backend can continue.
+There is also a known issue with mapping connectors on blocks coming from frontend. This has to do with connector class
+being abstract. This issue may be a more fundamental issue that require a lot of changes in the models both in front and
+backend.
+
 Note that there are several methods in backend that will respond with no or limited data as the whole Mimir project is
-in a transitional state.
+in a transitional state. The same goes for code in frontend, where a lot has been commented out. This can be revealed
+when running a lint command in frontend.
+
+```bash
+npm run lint
+```
 
 :::caution Note
 Given our limited knowledge there will probably be more issues tied to connecting frontend, backend and DB together.

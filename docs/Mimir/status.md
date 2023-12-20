@@ -2,12 +2,12 @@
 sidebar_position: 1
 ---
 
-# Current status of Mimir
+# Current state of the code base
 
 In 2023, Mimir began a major refactoring that is still in progress.
 
 Major changes have been made to the project, and you can see the outline of being well on the way to a new
-MVP. One of the things that was decided was to move a lot of functionality in the frontend to a common component
+MVP. One of the things that was decided was to move a lot of functionality in the client to a common component
 library in order to get an overview of the project and reuse components. It was a good idea at the time, but we now see
 that if we were to continue with the products (Tyle and Mimir) we would bring in the components in the code again. This
 is mainly because the products are so different in design that it no longer makes sense to have a common library.
@@ -19,13 +19,13 @@ The team's main focus has been project storage. In order to save, the data model
 managed to
 save projects, but not update existing projects.
 
-The backend is ready to receive this data from the frontend. Mimir frontend has an advanced state management in the
-which is based on Redux and Saga for doing api-calls based on redux dispatch. In the Mimir backend, much of
+The server is ready to receive this data from the client. Mimir client has an advanced state management in the
+which is based on Redux and Saga for doing api-calls based on redux dispatch. In Mimir server, much of
 the previous functionality has been commented
 out as these break with the new IMF model and are intended to be reimplemented when the project is mature.
 
 Mimir bears the mark of not having been tested against each other when refactored. And the
-communication between front and backend is not complete nor fully fleshed out. And is a potential break point in future
+communication between front and server is not complete nor fully fleshed out. And is a potential break point in future
 development.
 
 # Component library
@@ -36,7 +36,7 @@ discontinued or not.
 
 ## Summary
 
-- Mimir frontend is in a transitional state. Where a lot of vital app components have not been re-implemented,
+- Mimir client is in a transitional state. Where a lot of vital app components have not been re-implemented,
   re-connected or
   are partially working:
     - Admin module.
@@ -48,9 +48,9 @@ discontinued or not.
     - Terminal connections.
     - Navbar menu.
     - Project creation (instantiation of the constructor is hardcoded).
-- Mimir backend is also in a transitional state. Where a lot of code is commented out as it breaks with the new IMF
+- Mimir server is also in a transitional state. Where a lot of code is commented out as it breaks with the new IMF
   model.
 
 In order to continue the development of Mimir as of now, the team suggest the new contributor to start with connecting
-frontend to backend properly before moving on to implementation of functionality. Saving of project has been started on
+client to server properly before moving on to implementation of functionality. Saving of project has been started on
 but not finished.

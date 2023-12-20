@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+title: Introduction
 ---
 
 ![logo](Overview/img/mimirDarkLogo.png)
@@ -50,6 +51,12 @@ sidebar_position: 1
 </div>
 
 <br />
+
+# Introduction
+
+Mimir is currently not in active development. This documentation is primarily meant as a guide for potential new
+developers to start active development again, and to inform about the current state of the code base, as well as future
+plans for development that the previous team had.
 
 <!-- About the Project -->
 

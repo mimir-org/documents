@@ -87,13 +87,6 @@ const config = {
           },
           {
             type: "docSidebar",
-            sidebarId: "mimirUserDocs",
-            position: "left",
-            label: "Mimir User Manual",
-            to: "./MimirUserDocs",
-          },
-          {
-            type: "docSidebar",
             sidebarId: "tyleUserDocs",
             position: "left",
             label: "Tyle User Manual",
@@ -119,10 +112,6 @@ const config = {
               {
                 label: "Tyle Docs",
                 to: "/docs/Tyle/intro",
-              },
-              {
-                label: "Mimir User Documentation",
-                to: "/docs/MimirUserDocs/intro",
               },
               {
                 label: "Tyle User Documentation",

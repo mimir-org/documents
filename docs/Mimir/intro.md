@@ -194,6 +194,11 @@ To set environment variables for server in development, edit the appsettings.jso
 
 ## :floppy_disk: Getting Started
 
+:::caution note
+Parts of this setup documentation may bed outdated. This can be updated when Tyle and Mimir are seperated or all
+the models in Mimir are updated to IMF 0.2.0.
+:::
+
 <!-- Prerequisites -->
 
 ### Prerequisites

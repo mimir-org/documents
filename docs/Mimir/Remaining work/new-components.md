@@ -10,12 +10,13 @@ removed from the tree, as this will cause the project state to change via React 
 On the start screen today, there are several buttons that do nothing:
 ![](img/projectMenu.png)
 
-The most important of these is to save a project; this must be implemented before Mimir reaches an MVP. So this is
-probably the most important for the next sprint if it's urgent to get Mimir live.
-
-I don't see import and export as a "must-have" at the moment, but it will likely become very relevant for the future.
-The same applies to sub-projects. I believe the open project works as it should, but without being able to save a
-project, it's also not possible to open a new project.
+- Open project: is not implemented.
+- Create project: is partially implemented but instantiation project constructor is hardcoded.
+- Save project: is partially implemented. We can save projects, but not updated existing projects.
+- Close project: not implemented.
+- Import project: not implemented.
+- Export project: not implemented.
+- Subproject functionality: no implemented.
 
 ## Visual Filter
 
@@ -43,25 +44,25 @@ You can't filter in this module (on the right in Mimir) today. This should be a 
 In block view, it should be possible to rotate the viewport 90 degrees so that those who are used to drawing from top to
 bottom can use this view (this view is called electromode).
 
-Sorting of terminals would also be nice here, as an AspectObject can have many terminals, and to avoid edges between
+Sorting of terminals would also be nice here, as a Block can have many terminals, and to avoid edges between
 nodes getting tangled.
 
-### Inspector Module
+## Inspector Module
 
 ![](img/terminalAttributes.png)
+In the inspector module, it should be possible to edit block data. Name, description, attributes etc.
+This is in progress. And has been remade based on the components and structure used in the Library module. But a lot of
+work still remains. None of the forms for input has been implemented.
 
-This needs a refresh, as I'm not 100% sure what should be in this tab; Jørgen probably knows. It's also possible that
-this tab should be removed, but that depends on what the new style will be like.
-
-### Explorer Panel
+## Explorer Panel
 
 ![](img/explorerPanel.png)
 
 This is the panel on the left in Mimir's menu; this needs to be re-implemented. It should only display the entire
-drawing area as a tree structure, think of the tree structure in VSCode for example. It should also be possible to turn
-off the display of nodes and the entire "tree" in this menu.
+drawing area as a tree structure, think of the document tree structure in your IDE for example. It should also be
+possible to turn off the display of nodes and the entire "tree" in this menu.
 
-### Lock and Delete
+## Lock and Delete
 
 ![](img/lockDelete.png)
 
@@ -71,7 +72,24 @@ Lock doesn't need to be considered right now, as this functionality is to lock i
 while you're working on it. Since Mimir hasn't implemented web-sockets today, this button is also not in use. As it
 doesn't push any state changes to the backend.
 
-## Connection to Backend - Saving Projects
+## Connection frontend to Backend
 
-This is probably the biggest task, but hard to prioritize as we don't know if the backend and frontend are still
-communicating. Here it's just trial and error that's needed, as I haven't looked at this task myself.
+Connecting to backend is possible in the current state but will cast a few exceptions. In order to get it up and running
+again is to first of all remove the query for company(as this is removed from Tyle) and ensure that data models in
+frontend are updated. And that all logic tied to company is removed.
+
+There is also a known issue with mapping connectors on blocks coming from frontend. This has to do with connector class
+being abstract. This issue may be a more fundamental issue that require a lot of changes in the models both in front and
+backend.
+
+Note that there are several methods in backend that will respond with no or limited data as the whole Mimir project is
+in a transitional state. The same goes for code in frontend, where a lot has been commented out. This can be revealed
+when running a lint command in frontend.
+
+```bash
+npm run lint
+```
+
+:::caution Note
+Given our limited knowledge there will probably be more issues tied to connecting frontend, backend and DB together.
+:::

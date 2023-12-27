@@ -17,7 +17,7 @@ const FeatureList = [
     {
         title: 'Tyle',
         img: "./img/tyleLogo.svg",
-        url: '/documents/docs/Tyle/contributing',
+        url: '/documents/docs/Tyle/intro',
         description: (
             <>
                 Tyle is the type creating system of Mimir-org. Create types to use with Mimir.

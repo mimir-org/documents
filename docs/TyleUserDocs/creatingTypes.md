@@ -18,20 +18,19 @@ The filter menu can be employed to narrow down the list to specific types:
 
 ![Filter Menu](img/creatingTypes2.png)
 
-### Object Creation with Write Permission
+### Type Creation
 
-Users endowed with 'Write' permissions have the capability to create new objects:
+Users endowed with higher role than 'Read' have the capability to create new types:
+In the following screenshot, a user initiates the creation of a new 'Block':
 
-![Write Permission](img/creatingTypes3.png)
+![Creating Block](img/creatingTypes4.png)
 
-In the following screenshot, a user initiates the creation of a new 'Aspect Object':
-
-![Creating Aspect Object](img/creatingTypes4.png)
+Complete the fields needed and proceed.
 
 ### Object Status and Actions
 
 Upon creation, the aspect object will be in a 'Draft' status. During this phase, the user has the options to clone,
-edit, request approval, or delete the object:
+edit, request approval, or delete the object if all connected types (i.e. attributes and terminals) already are approved:
 
 ![Draft Status](img/creatingTypes5.png)
 
@@ -40,3 +39,6 @@ edit, request approval, or delete the object:
 Once the user is content with the newly created type, they can proceed to 'request approval'. The status will then
 transition to 'Pending Approval'. Subsequently, a user with at least 'Approve' access level is required to validate the
 new type. Upon approval, a confirmation email will be sent to you.
+The below screenshot shows the admin table of approval type. Once it is approved it cannot be deleted or edited. This action send the type to centralized library for further use.
+
+![Approving type](img/creatingTypes6.png)

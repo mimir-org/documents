@@ -6,13 +6,13 @@ sidebar_position: 2
 
 ## Initial Steps
 
-1. Navigate to [Tyle's Official Website](https://tyle.imftools.com) and select the 'Sign Up' option.
+1. Navigate to Tyle offical webpage and select the 'Sign Up' option. The url can be provided by the project owner
 
-![Sign Up](img/registering1.png)
+![Sign Up](img/registrering1.png)
 
 2. On the 'Registration' interface, complete the required fields and click 'Create Account'.
 
-![Registration Interface](img/registering2.png)
+![Registration Interface](img/registrering2.png)
 
 ## Email Verification
 
@@ -55,14 +55,10 @@ sidebar_position: 2
 9. Upon successful login, you will be directed to the Tyle main interface. Your account settings can be accessed from
    the top-right corner of the screen.
 
-![Main Interface](img/registering9.png)
-
 ## Requesting Additional Access
 
 10. To request higher access levels, contact the organization's administrator. Their contact information can be found
     under the 'Contact' menu.
-
-![Contact Administrator](img/registering10.png)
 
 11. Once your access level has been updated, you will receive a confirmation email.
 

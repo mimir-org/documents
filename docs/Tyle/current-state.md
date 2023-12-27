@@ -86,3 +86,8 @@ frontend components.
   these so that this package can be phased out.
 - There is some unused code as well as some code that is commented out in the frontend code base that should be
   removed.
+
+
+### Database calls
+As for many application in development, the databasecalls could be more efficient. This goes also for Tyle.
+Some calls to DB seems excessive and should be revieved.

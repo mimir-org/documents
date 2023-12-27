@@ -16,6 +16,8 @@ plans for development that the previous team had.
 The source code is available at [Github](https://github.com/mimir-org/tyle). The project has a C# backend and a React
 frontend. It also needs a SQL server to run, for instance [MSSQL](https://www.microsoft.com/en-us/sql-server/).
 
+Note that Tyles current state do calls to external API (commonlib) on startup and periodically. This should be dissabled in a development enviroment to prevent redundant fetching unessential data and in possibly cast exceptions if not succeeded.
+
 ### Environment Variables
 
 <details>

@@ -19,7 +19,7 @@ sidebar_position: 2
 3. An email containing a registration code will be dispatched to your inbox. If you do not receive the email, please
    check your spam folder.
 
-![Email Verification](img/registering3.png)
+![Email Verification](img/registrering3.png)
 
 ## Authenticator Setup
 
@@ -27,18 +27,18 @@ sidebar_position: 2
    on your mobile device's app store. To scan the QR code, select the '+' icon, choose the account type, and then
    select 'Scan QR Code'.
 
-![Authenticator Setup](img/registering4.png)
+![Authenticator Setup](img/registrering4.png)
 
 5. After successfully adding Tyle to your authenticator, proceed by clicking 'Next'.
 
-![Next Step](img/registering5.png)
+![Next Step](img/registrering5.png)
 
 ## Access Level Assignment
 
 6. The administrator of your selected organization will receive a notification of your registration. They will assign
    your initial access level, and you will be notified via email.
 
-![Access Level](img/registering6.png)
+![Access Level](img/registrering6.png)
 
 ## Account Recovery
 
@@ -50,7 +50,7 @@ sidebar_position: 2
 8. Your Tyle account is now set up with read-only access. To log in, enter your email, password, and the code from your
    authenticator.
 
-![Login](img/registering8.png)
+![Login](img/registrering8.png)
 
 9. Upon successful login, you will be directed to the Tyle main interface. Your account settings can be accessed from
    the top-right corner of the screen.
@@ -62,6 +62,6 @@ sidebar_position: 2
 
 11. Once your access level has been updated, you will receive a confirmation email.
 
-![Confirmation](img/registering11.png)
+![Confirmation](img/registrering11.png)
 
 You are now prepared to engage with Tyle's functionalities.

@@ -3,17 +3,7 @@ import clsx from 'clsx';
 import styles from './styles.module.css';
 
 const FeatureList = [
-    {
-        title: 'Mimir',
-        img: require('@site/static/img/mimirDarkLogo.png').default,
-        url: '/documents/docs/Mimir/intro',
-        description: (
-            <>
-                Mimir can use the types from tyle to draw and explore IMF-models. This currently does not have a
-                production environment.
-            </>
-        ),
-    },
+
     {
         title: 'Tyle',
         img: "./img/tyleLogo.svg",
@@ -21,6 +11,16 @@ const FeatureList = [
         description: (
             <>
                 Tyle is the type creating system of Mimir-org. Create types to use with Mimir.
+            </>
+        ),
+    },
+    {
+        title: 'Mimir',
+        img: require('@site/static/img/mimirDarkLogo.png').default,
+        url: '/documents/docs/Mimir/intro',
+        description: (
+            <>
+                Mimir can use the types from tyle to draw and explore IMF-models. Please review the documentation for current state of the application as it is currently in developing.
             </>
         ),
     },

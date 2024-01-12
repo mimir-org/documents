@@ -107,9 +107,11 @@ appsettings.Development.json file. This file is not included in git repo. \* is 
 #### Reference Data Library settings
 
 The following settings must be provided for the Azure App instance running the Tyle server for properly authenticating
-with the downstream API used to fetch reference data. The current API used for this in Tyle is Common Library. See
+with the downstream API used to fetch reference data. The current API used for this in Tyle is either PCA or Common Library. See
 [Configure a web API that calls web APIs](https://learn.microsoft.com/en-us/entra/identity-platform/scenario-web-api-call-api-app-configuration?tabs=aspnetcore)
 for more information.
+
+These variables are only needed if `UseCommonLib` is set to true. Otherwise, Tyle will fetch reference data from PCA.
 
 \* `AzureAd__Instance`
 
@@ -121,9 +123,11 @@ for more information.
 
 \* `AzureAd__TenantId`
 
-\* `CommonLibApi__BaseUrl` - The base url for the external API
+\* `CommonLibApi__BaseUrl` - The base url for the Common Library API.
 
 \* `CommonLibApi__Scopes`
+
+`UseCommonLib` - Set to true if Common Library should be used (in an Equinor setting).
 
 </details>
 

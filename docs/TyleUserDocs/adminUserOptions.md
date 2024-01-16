@@ -11,7 +11,7 @@ During the approving admin has the possibility to set role to the new user.
 
 ![access new user](img/access-to-new-users.png)
 
-## Edit role to exisitng user
+## Edit role to existing user
 
 Editing role for users in Tyle is available for admin users only. This can be done in Settings - Roles.
 

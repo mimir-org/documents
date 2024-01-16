@@ -9,7 +9,7 @@ sidebar_position: 2
 The primary job for the Tyle backend is to serve as a CRUD-application for creating IMF types, as well as forwarding
 approved types to an external type library. Tyle currently uses Common Library as its type library.
 
-![backend diagram](img/tyle-backend-diagram.png)
+![backend diagram](../TyleUserDocs/img/tyle-backend-diagram.png)
 
 The diagram above shows the dependencies between the different projects in the backend. We will go through these
 projects, outlining their role in the application as a whole, and commenting on work that remains to be done.

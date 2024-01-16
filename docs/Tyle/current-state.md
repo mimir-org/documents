@@ -9,7 +9,7 @@ sidebar_position: 2
 The primary job for the Tyle backend is to serve as a CRUD-application for creating IMF types, as well as forwarding
 approved types to an external type library. Tyle currently uses Common Library as its type library.
 
-![backend diagram](img/tyle-backend-diagram.png)
+![backend diagram](../TyleUserDocs/img/tyle-backend-diagram.png)
 
 The diagram above shows the dependencies between the different projects in the backend. We will go through these
 projects, outlining their role in the application as a whole, and commenting on work that remains to be done.
@@ -74,20 +74,15 @@ frontend components.
 
 - Attribute groups are not functional in this version of the client. The idea of attribute groups is to make it easier
   to add attributes that are commonly applied together by bundling them in a group. A previous version of Tyle (v0.24)
-  has a working (although minimal) application of this concept.
-- Type previews, used in the About component on the right side of the home page, are either non-functional or not
-  changed according to the new data model.
-- The access page in the Settings menu is currently not functional. This page is intended as a way of notifying
-  administrators of new users that have not yet received a role granting them access to the application.
-- The approval page has the limitation that you will get an error message when trying to approve types referencing
-  non-approved types. The error message will not explain that this is the reason for the error. The approve button
-  should be disabled for these types, with a popup explaining the reason.
+  has a working (although minimal) application of this concept. The attribute groups are currently removed from the latest release.
 - Phasing out the use of React Hook Form. Some forms in the solution still use this package, we recommend updating
   these so that this package can be phased out.
 - There is some unused code as well as some code that is commented out in the frontend code base that should be
   removed.
+- The application does not have any logging. This should be added.
+- Admin has no possibility to reject a user request for Tyle i.e. set role as none or completely remove the request. This should be added.
 
 
 ### Database calls
-As for many application in development, the databasecalls could be more efficient. This goes also for Tyle.
-Some calls to DB seems excessive and should be revieved.
+As for many application in development, the database calls could be more efficient. This goes also for Tyle.
+Some calls to DB seems excessive and should be reviewed.

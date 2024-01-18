@@ -67,11 +67,6 @@ const config = {
         },
         items: [
           {
-            position: "left",
-            label: "Installation Guide",
-            to: "/installation-guide",
-          },
-          {
             type: "docSidebar",
             sidebarId: "mimirDocs",
             position: "left",

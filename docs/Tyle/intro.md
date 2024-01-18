@@ -45,6 +45,8 @@ appsettings.Development.json file. This file is not included in git repo. \* is 
 
 \* `ASPNETCORE_ENVIRONMENT` - Set .NET core environment
 
+\* `BaseIri` - The base IRI used when generating IRIs for IMF types. Should not include a trailing slash (/). E.g. http://tyle.imftools.com
+
 \* `CorsConfiguration__ValidOrigins` - Comma separated string of valid origins for CORS.
 E.g. http://localhost:3000,https://mimirorg.com
 
@@ -64,8 +66,7 @@ E.g. http://localhost:3000,https://mimirorg.com
 
 `MimirorgAuthSettings__JwtRefreshExpireMinutes` - The length of valid refresh token in minutes. Default 1440.
 
-`MimirorgAuthSettings__MaxFailedAccessAttempts` - The number of failed access attempts before locking account. Default
-5.
+`MimirorgAuthSettings__MaxFailedAccessAttempts` - The number of failed access attempts before locking account. Default 5.
 
 `MimirorgAuthSettings__DefaultLockoutMinutes` - The length of lockout. Default 1440.
 

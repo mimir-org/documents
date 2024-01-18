@@ -224,14 +224,6 @@ started.
 We welcome community pull requests for bug fixes, enhancements, and documentation.
 See [How to contribute](./contribute.md) for more information.
 
-<!-- Architecture sketches overall -->
-
-## :department_store: Architecture
-
-Architecture sketches overall.
-See [Mimir overall](https://github.com/mimir-org/documents/blob/main/architecture/mimir_architecture_overall.pdf) for
-more information.
-
 <!-- Code of Conduct -->
 
 ### :scroll: Code of Conduct
@@ -239,12 +231,6 @@ more information.
 This project has adopted the code of conduct defined by the Contributor Covenant to clarify expected behavior in our
 community. For more information, see
 the [.NET Foundation Code of Conduct](https://dotnetfoundation.org/about/code-of-conduct).
-
-<!-- License -->
-
-## :warning: License
-
-Distributed under the MIT License. See [LICENSE](./license.md) for more information.
 
 <!-- Contact -->
 

@@ -1,3 +1,7 @@
+---
+sidebar_position: 8
+---
+
 # How to contribute
 
 We welcome community pull requests for bug fixes, enhancements, and documentation. Code and API documentation are in

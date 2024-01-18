@@ -1,144 +1,26 @@
+---
+sidebar_position: 7
+---
+
 # FAQ
 
 ## Known problems
 
-### I have a white screen, what do I do?
 <details>
-<summary>Solution</summary>
+<summary>I have a white screen, what do I do?</summary>
 
 This is most often (read always) a result of incorrect environment variables somewhere. Checklist:
 
 - Is the frontend set to `REACT_APP_SILENT = true`?
-- Does your user have a company in the database, and is the secret for this company set in Mimir's `appsettings.json`,
-  e.g., `"Tyle": "secretHash"`?
 - Does the domain in Mimir match the domain set in the company table (MimirorgAuthentication database).
 
 </details>
 
-# I need to clean up my database, how can I do this?
-
 <details>
-<summary>
-Tyle kill script
-</summary>
+<summary>I can't register, what's happening?</summary>
+If you're not receiving the email, it's because it doesn't get sent when you're running in development mode; the same applies to the account recovery code. The email you should have received can be found in:
 
-```sql
-----------------------------------------------------------------------
---Script som kobler fra alt og alle som er tilkoblet
---Deretter slettes databasen
-USE [master];
-DECLARE @kill varchar(8000) = '';
-SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
-FROM sys.dm_exec_sessions
-WHERE database_id = db_id('Tyle')
-EXEC(@kill);
-DROP DATABASE Tyle
-CREATE Database Tyle
----------------------------------------------------------------------
-----------------------------------------------------------------------
-```
-
-</details>
-
-<details>
-<summary>
-MimirorgAuthentication kill script
-</summary>
-
-```sql
----------------------------------------------------------------------
-----------------------------------------------------------------------
---Script som kobler fra alt og alle som er tilkoblet
---Deretter slettes databasen
-USE [master];
-DECLARE @kill varchar(8000) = '';
-SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
-FROM sys.dm_exec_sessions
-WHERE database_id = db_id('MimirorgAuthentication')
-EXEC(@kill);
-DROP DATABASE MimirorgAuthentication
-CREATE Database MimirorgAuthentication
----------------------------------------------------------------------
-----------------------------------------------------------------------
-```
-
-</details>
-
-<details>
-<summary>
-ModelBuilder kill script
-</summary>
-
-```sql
----------------------------------------------------------------------
-----------------------------------------------------------------------
---Script som kobler fra alt og alle som er tilkoblet
---Deretter slettes databasen
-USE [master];
-DECLARE @kill varchar(8000) = '';
-SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
-FROM sys.dm_exec_sessions
-WHERE database_id = db_id('ModelBuilder')
-EXEC(@kill);
-DROP DATABASE ModelBuilder
-CREATE Database ModelBuilder
-INSERT INTO [ModelBuilder].[dbo].[CollaborationPartner] VALUES ('Aibel', 'aibel.com', 0, 'rdf.aibel.com');
----------------------------------------------------------------------
---USE master
---GO
---xp_readerrorlog 0, 1, N'Server is listening on'
---GO
-```
-
-</details>
-
-<details>
-<summary>
-Nuclear option (kill all)
-</summary>
-
-```sql
-----------------------------------------------------------------------
---Script som kobler fra alt og alle som er tilkoblet
---Deretter slettes databasen
-USE [master];
-DECLARE @kill varchar(8000) = '';
-SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
-FROM sys.dm_exec_sessions
-WHERE database_id = db_id('Tyle')
-EXEC(@kill);
-DROP DATABASE Tyle
-CREATE Database Tyle
----------------------------------------------------------------------
-----------------------------------------------------------------------
---Script som kobler fra alt og alle som er tilkoblet
---Deretter slettes databasen
-USE [master];
-DECLARE @kill varchar(8000) = '';
-SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
-FROM sys.dm_exec_sessions
-WHERE database_id = db_id('MimirorgAuthentication')
-EXEC(@kill);
-DROP DATABASE MimirorgAuthentication
-CREATE Database MimirorgAuthentication
----------------------------------------------------------------------
-----------------------------------------------------------------------
---Script som kobler fra alt og alle som er tilkoblet
---Deretter slettes databasen
-USE [master];
-DECLARE @kill varchar(8000) = '';
-SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
-FROM sys.dm_exec_sessions
-WHERE database_id = db_id('ModelBuilder')
-EXEC(@kill);
-DROP DATABASE ModelBuilder
-CREATE Database ModelBuilder
----------------------------------------------------------------------
---USE master
---GO
---xp_readerrorlog 0, 1, N'Server is listening on'
---GO
-```
+`/mimirorg/typelibrary/src/server/TypeLibrary.Api/bin/Debug/net7.0/Data/Mail/`
 
 </details>
 

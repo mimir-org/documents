@@ -1,6 +1,6 @@
 ---
-sidebar_position: 1
 title: Introduction
+sidebar_position: 1
 ---
 
 ![tyle logo](img/tyleLogo.svg)
@@ -14,7 +14,8 @@ plans for development that the previous team had.
 ## Installing and running Tyle
 
 The source code is available at [Github](https://github.com/mimir-org/tyle). The project has a C# backend and a React
-frontend. It also needs a SQL server to run, for instance [MSSQL](https://www.microsoft.com/en-us/sql-server/).
+frontend. It also needs a SQL server to run, for instance [MSSQL](https://www.microsoft.com/en-us/sql-server/). Check
+out the [setup page](setup.md) for more information getting started.
 
 Note that Tyles current state do calls to external API (commonlib) on startup and periodically. This should be dissabled in a development enviroment to prevent redundant fetching unessential data and in possibly cast exceptions if not succeeded.
 
@@ -44,7 +45,8 @@ appsettings.Development.json file. This file is not included in git repo. \* is 
 
 \* `ASPNETCORE_ENVIRONMENT` - Set .NET core environment
 
-\* `CorsConfiguration__ValidOrigins` - Comma separated string of valid origins for CORS. E.g. http://localhost:3000,https://mimirorg.com
+\* `CorsConfiguration__ValidOrigins` - Comma separated string of valid origins for CORS.
+E.g. http://localhost:3000,https://mimirorg.com
 
 #### Authentication settings
 
@@ -62,7 +64,8 @@ appsettings.Development.json file. This file is not included in git repo. \* is 
 
 `MimirorgAuthSettings__JwtRefreshExpireMinutes` - The length of valid refresh token in minutes. Default 1440.
 
-`MimirorgAuthSettings__MaxFailedAccessAttempts` - The number of failed access attempts before locking account. Default 5.
+`MimirorgAuthSettings__MaxFailedAccessAttempts` - The number of failed access attempts before locking account. Default
+5.
 
 `MimirorgAuthSettings__DefaultLockoutMinutes` - The length of lockout. Default 1440.
 
@@ -76,7 +79,8 @@ appsettings.Development.json file. This file is not included in git repo. \* is 
 
 `MimirorgAuthSettings__EmailKey` - The sendgrid email key. Required if MimirorgAuthSettings\_\_RequireConfirmedAccount.
 
-`MimirorgAuthSettings__EmailSecret` - The sendgrid email secret. Required if MimirorgAuthSettings\_\_RequireConfirmedAccount.
+`MimirorgAuthSettings__EmailSecret` - The sendgrid email secret. Required if
+MimirorgAuthSettings\_\_RequireConfirmedAccount.
 
 `MimirorgAuthSettings__QrWidth` - The width of the Qr Code. Default 300.
 
@@ -88,7 +92,8 @@ appsettings.Development.json file. This file is not included in git repo. \* is 
 
 \* `MimirorgAuthSettings__DatabaseConfiguration__InitialCatalog` - Auth database name.
 
-\* `MimirorgAuthSettings__DatabaseConfiguration__DbUser` - Server application auth database username, must be db owner on given catalog.
+\* `MimirorgAuthSettings__DatabaseConfiguration__DbUser` - Server application auth database username, must be db owner
+on given catalog.
 
 \* `MimirorgAuthSettings__DatabaseConfiguration__Password` - Server application auth database password.
 

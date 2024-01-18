@@ -171,18 +171,67 @@ Yalc is a way to connect npm package development with the dev environment. It al
 component-library and dynamically update them locally so that you don't have to release a new package on npm for every
 code change.
 
-Install yalc with:
+#### 1. Install Yalc
+
+First, you need to install Yalc globally on your machine:
 
 ```bash
-npm i yalc -g
+npm install -g yalc
 ```
 
-- Navigate to the `component-library/app` folder
-- Run the command yalc publish
-- Navigate to `/mimirorg/mimir/src/client`
-- Run the command yalc add `@mimirorg/component-library`
-- Now you can run mimir as usual by first installing the packages with npm i and then running it locally with npm run
-  start or npm run.
+#### 2. Publish the Component Library to Yalc
+
+Navigate to the "component-library" directory and publish the package to Yalc's local store:
+
+```bash
+cd path/to/component-library
+yalc publish
+```
+
+#### 3. Add the Component Library to the Mimir Project
+
+Now, navigate to the "mimir" project directory and add the "component-library" package using Yalc:
+
+```bash
+cd path/to/mimir
+yalc add component-library
+```
+
+#### 4. Link the Component Library (Optional)
+
+If you want to reflect the changes in the "component-library" instantly in the "mimir" project, you can use
+the `yalc link` command:
+
+```bash
+cd path/to/component-library
+yalc link mimir
+```
+
+#### 5. Push Updates (Optional)
+
+Whenever you make changes to the "component-library," you can push the updates to the "mimir" project using:
+
+```bash
+yalc push
+```
+
+#### 6. Remove the Component Library (Optional)
+
+If you want to remove the "component-library" from the "mimir" project and revert to the NPM version, you can use:
+
+```bash
+cd path/to/mimir
+yalc remove component-library
+```
+
+#### 7. Update the Component Library (Optional)
+
+To update the "component-library" in the "mimir" project with the latest version from Yalc's local store, you can use:
+
+```bash
+cd path/to/mimir
+yalc update component-library
+```
 
 # I need to clean up my local database, how can I do this?
 

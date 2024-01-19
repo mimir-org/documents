@@ -96,5 +96,5 @@ frontend components.
 
 ## Database calls
 
-As for many application in development, the database calls could be more efficient. This is also true for Tyle.
+As for many applications in development, the database calls could be more efficient. This is also true for Tyle.
 Some calls to DB seems excessive and should be reviewed.

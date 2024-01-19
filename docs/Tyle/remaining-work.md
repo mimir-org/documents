@@ -50,6 +50,14 @@ Some of the components of these forms are also unfinished. For instance, when ad
 there are boxes that you can use to set the minimum and maximum cardinality of these attributes, but there is no
 indication in the user interface that this is what these boxes are for.
 
+## Expanding the type approval view
+
+In the current user interface, users can only really see the name and the description of a type that is up for review. This
+is not enough information to actually do the review, so the users will have to navigate out of the approval interface,
+and go back to the search menu, finding the type there.
+
+This is obviously not a good work flow, so this section should be expanded with the needed information.
+
 ## Adding user and access control functionality
 
 The current Tyle client has the possibility to change roles given to users, but no way to strip a user of all roles,

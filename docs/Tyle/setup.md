@@ -214,6 +214,14 @@ come, because it is located here:
 It may be useful to sort by last modified so that the last email you received is at the top.
 :::
 
+The first user that is created in the development environment is given administrator rights. In production, the first
+user registered must be given administrator access manually in the authentication database by following these steps.
+
+1. Query the AspNetUsers table. Save your ID.
+2. Query the AspNetRoles table. Save the Administrator ID.
+3. Insert both IDs into the AspNetUserRoles table. You have now granted the administrator role to your user. You will need
+   to log out and back in again for this change to take effect.
+
 ## Database kill scripts
 
 It is sometimes useful to reset the database to an empty state during development. The following SQL scripts can be

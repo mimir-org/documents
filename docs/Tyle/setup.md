@@ -5,18 +5,13 @@ sidebar_position: 2
 
 ## Where Can I Find the Code?
 
-The code for Tyle can be found here https://github.com/mimir-org under the mimir-org repository. The project can be
-cloned
-to your machine with `git@github.com:mimir-org/<repository>.git` via SSH or `gh repo clone mimir-org/<repository>`
-with [GitHub CLI](https://cli.github.com/).
-
-```bash
-git clone git@github.com:mimir-org/tyle.git
-```
+The source code for Tyle can be found on Github: https://github.com/mimir-org/tyle
 
 ## Setup
 
 ### Database
+
+Tyle needs a SQL database to work. For setting this up in your dev environment you can follow these steps.
 
 1. Download and install [Docker](https://www.docker.com/).
 2. Create a new .yaml file and paste the following code.
@@ -30,10 +25,10 @@ version: "3.8"
 services:
   mssql:
     image: "mcr.microsoft.com/mssql/server:2017-CU8-ubuntu"
-    hostname: 'mssql'
+    hostname: "mssql"
     container_name: mssql
     ports:
-      - '127.0.0.1:1433:1433'
+      - "127.0.0.1:1433:1433"
     volumes:
       - mssql:/var/opt/mssql
     environment:
@@ -55,18 +50,9 @@ networks:
 
 </details>
 
-3. Place this yaml file as shown below:
-
-```
-📁 mimirorg (this can be renamed to whatever you want)
-├── 📁 tyle
-│   └── 📁 etc
-└── 🐋 docker-compose.yaml
-```
-
-4. Then run the docker-compose file from the command line. Use docker-compose up -d from the folder where the file is
+3. Then run the docker-compose file from the command line. Use docker-compose up -d from the folder where the file is
    located.
-5. Once it is up and running, you should be able to access the database using our database management
+4. Once it is up and running, you should be able to access the database using our database management
    application of choice:
 
 ```
@@ -77,58 +63,135 @@ networks:
 - Password=P4ssw0rd1
 ```
 
-<details>
-<summary>Docker container list</summary>
-```bash
-CONTAINER ID   IMAGE                                            COMMAND                   CREATED         STATUS         PORTS                           NAMES
-d914b6d4d538   mcr.microsoft.com/mssql/server:2017-CU8-ubuntu   "/opt/mssql/bin/sqls…"    9 seconds ago   Up 7 seconds   127.0.0.1:1433->1433/tcp        mssql
-```
-</details>
-
 :::tip
-If you are unfamiliar using docker command line tool. An option is to use
-the [docker desktop application](https://www.docker.com/products/docker-desktop/) to manage docker containers.
+If you are unfamiliar with using the docker command line tool. An option is to use
+the [Docker Desktop application](https://www.docker.com/products/docker-desktop/) to manage docker containers.
 :::
 
 ### Application
 
-Tyle depends on the database to run.
+Once the database is set up, you can run the application locally.
 
 #### App settings
 
-Before we can run tyle server you need to create a local app settings file. Because of gitignore this file need to be
-named **appsettings.Development.json**. Use the existing appsettings.json file combined with the environment variables
-section
-in the [introduction page](intro).
+Before you can run the Tyle server you need to create a local app settings file. This file needs to be
+named **appsettings.Development.json** and placed in the `src/server/Tyle.Api/` folder. Use the existing
+appsettings.json file as a template.
 
-Path to where the file should be created:
+<details>
+<summary>Environment variables for the server</summary>
 
-- `src/server/Tyle.Api/appsettings.Development.json`
+To set environment variables for server in development, edit the appsettings.Development.json file. For production build, you have
+to set the environment variables into the application container itself. \* denotes a required environment variable.
 
-#### Run locally
+##### General
 
-1. Tyle server is an [.NET](https://dotnet.microsoft.com/en-us/) application, so you need to build it
-   before you run it. This can be done via the IDE or using the command line as shown below. The `dotnet run` command
-   builds and runs the application.
+\* `ASPNETCORE_ENVIRONMENT` - Set .NET core environment
 
-```bash
-dotnet run <project name>
-```
+\* `BaseIri` - The base IRI used when generating IRIs for IMF types. Should not include a trailing slash (/). E.g. http://tyle.imftools.com
 
-2. Tyle client is a [React](https://react.dev/) application using NPM. So navigate to the client folder and run this
-   command to install all node modules required:
+\* `CorsConfiguration__ValidOrigins` - Comma separated string of valid origins for CORS.
+E.g. http://localhost:3000,https://mimirorg.com
 
-```bash
-npm i
-```
+##### Authentication settings
 
-3. Then you run the build command followed by the start command to launch the application. These steps can also be setup
-   using your IDE.
+\* `MimirorgAuthSettings___ApplicationName` - The name of the auth application. Used for auth apps title.
 
-```bash
-npm run build
-npm run start
-```
+\* `MimirorgAuthSettings__JwtKey` - The secret used for generating jwt keys, 64 characters.
+
+\* `MimirorgAuthSettings__JwtIssuer` - The url for Jwt issuer.
+
+\* `MimirorgAuthSettings__JwtAudience` - The url for Jwt audience.
+
+`MimirorgAuthSettings__RequireConfirmedAccount` - Is it required to confirm accout. Default true.
+
+`MimirorgAuthSettings__JwtExpireMinutes` - The length of valid access token in minutes. Default 15.
+
+`MimirorgAuthSettings__JwtRefreshExpireMinutes` - The length of valid refresh token in minutes. Default 1440.
+
+`MimirorgAuthSettings__MaxFailedAccessAttempts` - The number of failed access attempts before locking account. Default 5.
+
+`MimirorgAuthSettings__DefaultLockoutMinutes` - The length of lockout. Default 1440.
+
+`MimirorgAuthSettings__RequireDigit` - Require digits in password. Default true.
+
+`MimirorgAuthSettings__RequireUppercase` - Require uppercase in password. Default true.
+
+`MimirorgAuthSettings__RequireNonAlphanumeric` - Require none alphanumeric in password. Default false.
+
+`MimirorgAuthSettings__RequiredLength` - Require length of password. Default 10.
+
+`MimirorgAuthSettings__EmailKey` - The sendgrid email key. Required if MimirorgAuthSettings\_\_RequireConfirmedAccount.
+
+`MimirorgAuthSettings__EmailSecret` - The sendgrid email secret. Required if
+MimirorgAuthSettings\_\_RequireConfirmedAccount.
+
+`MimirorgAuthSettings__QrWidth` - The width of the Qr Code. Default 300.
+
+`MimirorgAuthSettings__QrHeight` - The height of the Qr Code. Default 300.
+
+\* `MimirorgAuthSettings__DatabaseConfiguration__DataSource` - Identifier for auth database server.
+
+\* `MimirorgAuthSettings__DatabaseConfiguration__Port` - Port of auth database server. E.g. 1443.
+
+\* `MimirorgAuthSettings__DatabaseConfiguration__InitialCatalog` - Auth database name.
+
+\* `MimirorgAuthSettings__DatabaseConfiguration__DbUser` - Server application auth database username, must be db owner
+on given catalog.
+
+\* `MimirorgAuthSettings__DatabaseConfiguration__Password` - Server application auth database password.
+
+##### Database settings
+
+\* `DatabaseConfiguration__DataSource` - Identifier for database server
+
+\* `DatabaseConfiguration__Port` - Port of database server. E.g. 1443
+
+\* `DatabaseConfiguration__InitialCatalog` - Database name
+
+\* `DatabaseConfiguration__DbUser` - Server application database username, must be db owner on given catalog
+
+\* `DatabaseConfiguration__Password` - Server application database password
+
+##### Reference Data Library settings
+
+The following settings must be provided for the Azure App instance running the Tyle server for properly authenticating
+with the downstream API used to fetch reference data. The current API used for this in Tyle is either PCA or Common Library. See
+[Configure a web API that calls web APIs](https://learn.microsoft.com/en-us/entra/identity-platform/scenario-web-api-call-api-app-configuration?tabs=aspnetcore)
+for more information.
+
+These variables are only needed if `UseCommonLib` is set to true. Otherwise, Tyle will fetch reference data from PCA.
+
+\* `AzureAd__Instance`
+
+\* `AzureAd__ClientId`
+
+\* `AzureAd__ClientSecret` - Should be stored in a key vault
+
+\* `AzureAd__Domain`
+
+\* `AzureAd__TenantId`
+
+\* `CommonLibApi__BaseUrl` - The base url for the Common Library API.
+
+\* `CommonLibApi__Scopes`
+
+`UseCommonLib` - Set to true if Common Library should be used (in an Equinor setting).
+
+</details>
+
+<details>
+<summary>Environment variables for the client</summary>
+
+To set environment variables for client in development, edit the .env file. For production build, you have to set the
+environment variables into the container itself. You can override the .env with a .env.local file. This file is not
+included in git repo. \* is required.
+
+\* `VITE_API_BASE_URL` - Url to backend server
+
+\* `VITE_TYLE_VERSION` - The version number of Tyle
+
+</details>
 
 #### Create a user
 
@@ -151,21 +214,14 @@ come, because it is located here:
 It may be useful to sort by last modified so that the last email you received is at the top.
 :::
 
-### Enable all features in Tyle
+## Database kill scripts
 
-I order to enable all features you need to assign the administrator role to your newly created user. This is done
-through the **MimirorgAuthentication** database. You will have to create a new connection between the users-table and
-the roles-table.
-
-1. Query the AspNetUsers table. Save your ID.
-2. Query the AspNetRoles table. Save the Administrator ID.
-3. Insert both IDs into the AspNetUserRoles table. Now you have enabled administrator role to your user.
-
-# I need to clean up my local database, how can I do this?
+It is sometimes useful to reset the database to an empty state during development. The following SQL scripts can be
+used to do this.
 
 <details>
 <summary>
-Tyle kill script
+Tyle db kill script
 </summary>
 
 ```sql
@@ -188,7 +244,7 @@ CREATE Database Tyle
 
 <details>
 <summary>
-MimirorgAuthentication kill script
+MimirorgAuthentication db kill script
 </summary>
 
 ```sql
@@ -210,81 +266,10 @@ CREATE Database MimirorgAuthentication
 
 </details>
 
+## Deploying Tyle
 
-<details>
-<summary>
-ModelBuilder kill script
-</summary>
+The current deployment method for Tyle is building Docker images of the backend and frontend and running these with app
+services in Azure. There are Github actions in the repository for building these Docker images. The triggers for these
+actions are either pushing to the stage branch or creating a new release.
 
-```sql
----------------------------------------------------------------------
-----------------------------------------------------------------------
---Script som kobler fra alt og alle som er tilkoblet
---Deretter slettes databasen
-USE [master];
-DECLARE @kill varchar(8000) = '';
-SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
-FROM sys.dm_exec_sessions
-WHERE database_id = db_id('ModelBuilder')
-EXEC(@kill);
-DROP DATABASE ModelBuilder
-CREATE Database ModelBuilder
-INSERT INTO [ModelBuilder].[dbo].[CollaborationPartner] VALUES ('Aibel', 'aibel.com', 0, 'rdf.aibel.com');
----------------------------------------------------------------------
---USE master
---GO
---xp_readerrorlog 0, 1, N'Server is listening on' 
---GO
-```
-
-</details>
-
-<details>
-<summary>
-Nuclear option (kill all)
-</summary>
-
-```sql
-----------------------------------------------------------------------
---Script som kobler fra alt og alle som er tilkoblet
---Deretter slettes databasen
-USE [master];
-DECLARE @kill varchar(8000) = '';
-SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
-FROM sys.dm_exec_sessions
-WHERE database_id = db_id('Tyle')
-EXEC(@kill);
-DROP DATABASE Tyle
-CREATE Database Tyle
----------------------------------------------------------------------
-----------------------------------------------------------------------
---Script som kobler fra alt og alle som er tilkoblet
---Deretter slettes databasen
-USE [master];
-DECLARE @kill varchar(8000) = '';
-SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
-FROM sys.dm_exec_sessions
-WHERE database_id = db_id('MimirorgAuthentication')
-EXEC(@kill);
-DROP DATABASE MimirorgAuthentication
-CREATE Database MimirorgAuthentication
----------------------------------------------------------------------
-----------------------------------------------------------------------
---Script som kobler fra alt og alle som er tilkoblet
---Deretter slettes databasen
-USE [master];
-DECLARE @kill varchar(8000) = '';
-SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'
-FROM sys.dm_exec_sessions
-WHERE database_id = db_id('ModelBuilder')
-EXEC(@kill);
-DROP DATABASE ModelBuilder
-CREATE Database ModelBuilder
----------------------------------------------------------------------
---USE master
---GO
---xp_readerrorlog 0, 1, N'Server is listening on' 
---GO
-```
-
-</details>
+The environment variables can be set in the Azure portal, on the App service running the containers.

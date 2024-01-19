@@ -15,5 +15,4 @@ During the approving admin has the possibility to set role to the new user.
 
 Editing role for users in Tyle is available for admin users only. This can be done in Settings - Roles.
 
-![role update](../Tyle/img/role-update.png)
-
+![role update](../TyleUserDocs/img/role-update.png)

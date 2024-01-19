@@ -9,7 +9,7 @@ sidebar_position: 3
 The primary job for the Tyle backend is to serve as a CRUD-application for creating IMF types, as well as forwarding
 approved types to an external type library. Tyle currently uses Common Library as its type library.
 
-![backend diagram](../TyleUserDocs/img/tyle-backend-diagram.png)
+![backend diagram](../Tyle/img/tyle-backend-diagram.png)
 
 The diagram above shows the dependencies between the different projects in the backend. We will go through these
 projects, outlining their role in the application as a whole, and commenting on work that remains to be done.
@@ -82,7 +82,7 @@ frontend components.
 - The application does not have any logging. This should be added.
 - Admin has no possibility to reject a user request for Tyle i.e. set role as none or completely remove the request. This should be added.
 
-
 ### Database calls
+
 As for many application in development, the database calls could be more efficient. This goes also for Tyle.
 Some calls to DB seems excessive and should be reviewed.
